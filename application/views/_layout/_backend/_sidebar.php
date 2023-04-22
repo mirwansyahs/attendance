@@ -58,12 +58,30 @@
 
         <li class="menu-title" key="t-apps">Apps</li>
 
-        <li class="mm-active">
-          <a href="<?=base_url()?>Redaktur/Home" class="waves-effect">
-            <i class="bx bx-briefcase-alt-2"></i>
-            <span key="t-chat">Human Resources</span>
+        <li class="">
+          <a href="<?=base_url()?>admin/home" class="waves-effect">
+            <i class="fa fa-home"></i>
+            <span key="t-chat"><?=lang('home')?></span>
           </a>
         </li>
+
+        <?php if ($this->userdata->TenantCore == 1){ ?>
+        <li class="">
+          <a href="<?=base_url()?>core/home" class="waves-effect">
+            <i class="bx bx-shield"></i>
+            <span key="t-chat"><?=lang('core_management')?></span>
+          </a>
+        </li>
+        <?php } ?>
+
+        <?php foreach ($this->modul as $key) { ?>
+        <li class="<?=($this->uri->segment(1) == explode("/", $key->ModulUrl)[0])?'mm-active':''?>">
+          <a href="<?=base_url()?><?=$key->ModulUrl?>" class="waves-effect">
+            <i class="<?=$key->ModulIcon?>"></i>
+            <span key="t-chat"><?=lang($key->ModulName)?></span>
+          </a>
+        </li>
+        <?php } ?>
       </ul>
     </div>
     <!-- Sidebar -->

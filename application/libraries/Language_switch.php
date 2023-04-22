@@ -21,7 +21,10 @@ class language_switch {
 		$parametersessioninrun = $this->parametersession;
 		if ($language_swicthto) {
 			if (in_array($language_swicthto, $this->language_available)) {
-				$CI->db->update('mis_users', ['lang' => $language_swicthto], ['email' => $CI->session->userdata('userdata')->Username]);
+				$CI->load->library('API');
+				$data = $CI->api->CallAPI('PUT', core_api('/api/v1/Employee') , ['EmployeeID' => @$CI->session->userdata('userdata')->result->EmployeeID, 'EmployeeLang' => $language_swicthto]);
+				// echo $data;
+				// $CI->db->update('mis_users', ['EmployeeLang' => $language_swicthto], ['EmployeePersonalEmail' => $CI->session->userdata('userdata')->result->EmployeePersonalEmail]);
 				$CI->session->set_userdata( array('multilanguage'=> $language_swicthto));
 			}
 		}

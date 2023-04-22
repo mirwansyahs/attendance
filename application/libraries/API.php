@@ -31,16 +31,33 @@ class API {
                 }
                 break;
             case "PUT":
-                curl_setopt($curl, CURLOPT_PUT, 1);
 
                 if ($data) {
+                    curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
+                    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
                     curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-                        'Content-Type: application/x-www-form-urlencoded',
+                        'Content-Type: multipart/form-data',
                         'Content-Length: ' . strlen(json_encode($data)),
                         $header
                     ));
-                    curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
+                }
+                else {
+                    curl_setopt($curl, CURLOPT_POSTFIELDS, "");
+                    if ($header) {
+                        curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
+                    }
+                }
+                break;
+            case "DELETE":
 
+                if ($data) {
+                    curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
+                    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE");
+                    curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+                        'Content-Type: multipart/form-data',
+                        'Content-Length: ' . strlen(json_encode($data)),
+                        $header
+                    ));
                 }
                 else {
                     curl_setopt($curl, CURLOPT_POSTFIELDS, "");

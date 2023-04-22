@@ -27,8 +27,11 @@ if ( ! function_exists('lang()'))
 	    	eval($implodeparameter);
 	    }else{
 	    	// $line = print($CI->lang->line($line));
-	    	$line = $CI->lang->line($line);
+	    	$lines = $CI->lang->line($line);
+			if ($lines == ""){
+				$lines = '_'.$line; 
+			}
 	    };
-	    return $line;
+	    return $lines;
 	}
 }

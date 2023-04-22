@@ -4,35 +4,30 @@
             <div class="card-title">
                 <div class="row">
                     <div class="col-md-6">
-                        <h4><?=lang('tambah_portofolio')?></h4>
+                        <h4><?=lang('ubah_modul')?></h4>
                     </div>
                     <div class="col-md-6">
-                        <!-- <a name="" id="" class="btn btn-primary" style="float: right" href="<?=base_url()?>Redaktur/Portofolio/add" role="button">
+                        <!-- <a name="" id="" class="btn btn-primary" style="float: right" href="<?=base_url()?>core/Portofolio/add" role="button">
                             <i class="fa fa-plus-square"></i>
                             Tambah data
                         </a> -->
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-md-12">
-                    <?=form_open_multipart('Redaktur/Portofolio/addProses')?>
+                    <?=form_open_multipart('core/Modul/updateProses/'.$id)?>
                     <div class="mb-3">
-                        <label class="form-label"><?=lang('nama')?></label>
-                        <input type="text" class="form-control" id="nama" name="nama" value="">
+                        <label class="form-label"><?=lang('modul_name')?></label>
+                        <input type="text" class="form-control" id="ModulName" name="ModulName" value="<?=$data->ModulName?>">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label"><?=lang('deskripsi')?></label>
-                        <input type="text" class="form-control" id="deskripsi" name="deskripsi" value="">
+                        <label class="form-label"><?=lang('modul_url')?></label>
+                        <input type="text" class="form-control" id="ModulUrl" name="ModulUrl" value="<?=$data->ModulUrl?>">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label"><?=lang('link')?></label>
-                        <input type="text" class="form-control" id="link" name="link" value="">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label"><?=lang('gambar')?></label>
-                        <input type="file" class="form-control" id="gambar" name="gambar" accept="image/*" value="">
+                        <label class="form-label"><?=lang('modul_icon')?></label>
+                        <input type="text" class="form-control" id="ModulIcon" name="ModulIcon" value="<?=$data->ModulIcon?>">
                     </div>
                     <button class="btn btn-success">
                         <i class="fa fa-save"> <?=lang('simpan')?></i>

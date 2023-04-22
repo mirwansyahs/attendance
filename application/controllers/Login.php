@@ -6,7 +6,6 @@ class Login extends CI_Controller{
 		public function __construct()
 		{
 			parent::__construct();
-			$this->load->model('M_employee');
 		}
 
 		public function index()
@@ -16,7 +15,7 @@ class Login extends CI_Controller{
 			if ($session == '') {
 				$this->load->view('_frontend/login');
 			} else {
-				redirect('Redaktur/Home');
+				redirect('admin/Home');
 			}
 		}
 
@@ -26,29 +25,33 @@ class Login extends CI_Controller{
 			$username = trim($data['email']);
 			$password = trim($data['password']);
 
-			$data = $this->M_employee->select(['EmployeeEmail' => $username, 'EmployeePassword' => sha1(md5($password))]);
+			$data = $this->api->CallAPI('POST', core_api('/api/v1/Authentication'), ['EmployeePersonalEmail' => $username, 'EmployeePassword' => $password]);
 			
-			if ($data->num_rows() == false) {			
+			$data = json_decode($data);
+			if ($data->status == false) {			
 				$arr = array(
 					'succ'	=> 0,
-					'msg'	=> "Login gagal."
+					'msg'	=> $data->message
 				);
 			} else {
 				date_default_timezone_set('Asia/Jakarta');
 				$session = [
-					'userdata' => $data->row(),
+					'userdata' => $data,
 					'status' => "Loged in"
 				];
+				
+				
 
 				$this->session->set_userdata('file_manager',true);
 				$this->session->set_userdata($session);
+				$this->session->set_userdata('multilanguage', $data->result->EmployeeLang);
 				if (@$this->input->get('redirect')){
 					$redirect = $this->input->get('redirect');
 					// if (strtolower($redirect) == "aspirations"){
 					// 	redirect('Administrator/Aspirations');
 					// }
 				}else{
-					$redirect = "redaktur/home";
+					$redirect = "admin/home";
 				}
 				
 				$arr = array(

@@ -5,19 +5,19 @@
       <div class="navbar-brand-box">
         <a href="<?=base_url()?>Home" class="logo logo-dark">
           <span class="logo-sm">
-            <img src="<?=base_url()?>assets/images/faviconpng.png" alt="" height="22">
+            <img src="<?=base_url()?>assets/images/logo-omahawan.png" alt="" height="22">
           </span>
           <span class="logo-lg">
-            <img src="<?=base_url()?>assets/images/faviconpng.png" alt="" height="50">
+            <img src="<?=base_url()?>assets/images/logo-omahawan-nav.png" alt="" height="40">
           </span>
         </a>
 
         <a href="<?=base_url()?>Home" class="logo logo-light">
           <span class="logo-sm">
-            <img src="<?=base_url()?>assets/images/faviconpng.png" alt="" height="30">
+            <img src="<?=base_url()?>assets/images/logo-omahawan.png" alt="" height="30">
           </span>
           <span class="logo-lg">
-            <img src="<?=base_url()?>assets/images/faviconpng.png" alt="" height="50">
+            <img src="<?=base_url()?>assets/images/logo-omahawan-nav.png" alt="" height="40">
           </span>
         </a>
       </div>
@@ -34,7 +34,7 @@
       <div class="dropdown d-inline-block">
         <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false">
-          <img id="header-lang-img" src="<?=base_url()?>assets/images/flags/<?=(@$this->userdata->lang == "us")?"us.jpg":"indonesia.png"?>" alt="Header Language" height="16">
+          <img id="header-lang-img" src="<?=base_url()?>assets/images/flags/<?=(@$this->userdata->EmployeeLang == "us")?"us.jpg":"indonesia.png"?>" alt="Header Language" height="16">
         </button>
         <div class="dropdown-menu dropdown-menu-end">
 
@@ -51,8 +51,7 @@
           
         </div>
       </div>
-
-      
+    
       <div class="dropdown d-inline-block">
         <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown"
           data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -102,8 +101,8 @@
       <div class="dropdown d-inline-block">
         <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
           data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img class="rounded-circle header-profile-user" src="<?=base_url()?>assets/images/users/avatar-1.jpg" alt="<?=$this->userdata->EmployeeName?>">
-          <span class="d-none d-xl-inline-block ms-1" key="t-<?=$this->userdata->EmployeeName?>"><?=$this->userdata->EmployeeName?></span>
+          <img class="rounded-circle header-profile-user" src="<?=base_url()?>assets/images/users/avatar-1.jpg" alt="<?=$this->userdata->EmployeeFirstName?>">
+          <span class="d-none d-xl-inline-block ms-1" key="t-<?=$this->userdata->EmployeeFirstName?>"><?=$this->userdata->EmployeeFirstName?></span>
           <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
         </button>
         <div class="dropdown-menu dropdown-menu-end">

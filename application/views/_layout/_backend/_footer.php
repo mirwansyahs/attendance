@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-6">
-        2020 - <?=date('Y')?> © Solid Project ID.
+        2020 - <?=date('Y')?> © Omahawan.
       </div>
     </div>
   </div>

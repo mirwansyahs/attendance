@@ -7,16 +7,9 @@
 
                             <li class="nav-item">
                                 <a class="nav-link" href="<?=base_url()?>Redaktur/Home">
-                                    <i class="bx bx-home-circle me-2"></i><span key="t-beranda"><?=lang('home')?></span>
+                                    <i class="bx bx-home me-2"></i><span key="t-beranda"><?=lang('home')?></span>
                                 </a>
                             </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="<?=base_url()?>Redaktur/Home">
-                                    <i class="bx bx-home-circle me-2"></i><span key="t-beranda"><?=lang('employee')?></span>
-                                </a>
-                            </li>
-
                         
                         </ul>
                 </div>

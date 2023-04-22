@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?=base_name()?> | Dashboard</title>
-    <link rel="favicon icon" href="<?=base_url()?>assets/images/faviconpng.png">
+    <link rel="favicon icon" href="<?=base_url()?>assets/images/logo-omahawan.png">
 
 
     <!-- Bootstrap Css -->
@@ -29,6 +29,7 @@
     <!-- Sweet Alerts js -->
     <script src="<?=base_url()?>assets/backend/libs/sweetalert2/sweetalert2.min.js"></script>
     <script src="<?=base_url()?>assets/backend/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <link href="<?=base_url()?>assets/backend/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
 
     <style rel="stylesheet">
         *{

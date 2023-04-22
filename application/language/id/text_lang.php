@@ -1,15 +1,91 @@
 <?php
 //indonesia
 $lang['home'] = 'Beranda';
-$lang['portofolio'] = 'Portofolio';
-$lang['tambah_portofolio'] = 'Tambah Portofolio';
-$lang['ubah_portofolio'] = 'Ubah Portofolio';
-$lang['nama']   = 'Nama';
-$lang['deskripsi']  = 'Deskripsi';
-$lang['link']   = 'URL';
-$lang['gambar'] = 'Gambar';
 $lang['aksi']   = 'Aksi';
 $lang['simpan'] = 'Simpan';
 $lang['ubah'] = 'Ubah';
 $lang['hapus'] = 'Hapus';
-$lang['employee'] = 'Karyawan';
+$lang['tambah_data'] = 'Tambah Data';
+$lang['buka_maps'] = 'Buka Map';
+
+$lang['human_capital']          = 'Sumber Daya Manusia';
+$lang['core_management']        = 'Manajemen Inti';
+
+// Employee
+$lang['employee']               = 'Karyawan';
+$lang['tambah_employee']        = 'Tambah Karyawan';
+$lang['ubah_employee']          = 'Ubah Karyawan';
+$lang['employee_name']          = 'Nama Karyawan';
+$lang['employee_identification'] = 'Nomor Identifikasi';
+$lang['employee_phone']         = 'Nomor HP';
+$lang['employee_first_name']    = 'Nama Awal';
+$lang['employee_middle_name']   = 'Nama Tengah';
+$lang['employee_last_name']     = 'Nama Akhir';
+$lang['employee_identification_number']         = 'NIK';
+$lang['employee_family_identification_number']  = 'No. KK';
+$lang['employee_position']          = 'Posisi Karyawan';
+$lang['employee_personal_email']    = 'Email Pribadi';
+$lang['employee_corporate_email']   = 'Email Kantor';
+$lang['employee_password']          = 'Password Karyawan';
+$lang['employee_phone']             = 'Handphone Karyawan';
+$lang['employee_religion']          = 'Agama';
+$lang['employee_work_status']       = 'Status Kepegawaian';
+$lang['employee_marital_status']    = 'Status Pernikahan';
+$lang['employee_tenant']            = 'Perusahaan Karyawan';
+
+
+// Tenant
+$lang['tenant']               = 'Penyewa';
+$lang['tambah_tenant']        = 'Tambah Penyewa';
+$lang['ubah_tenant']          = 'Ubah Penyewa';
+$lang['tenant_name']          = 'Nama Penyewa';
+$lang['tenant_location']      = 'Lokasi Penyewa';
+$lang['tenant_modul']           = 'Modul Penyewa';
+$lang['jadikan_core']           = 'Jadikan Inti';
+$lang['core']                   = 'Inti';
+$lang['tenant_see_location']    = 'Lihat Lokasi Penyewa';
+$lang['tenant_see_modul']       = 'Lihat Modul Penyewa';
+
+
+// Tenant Location
+$lang['tenant_location']      = 'Lokasi Penyewa';
+$lang['tambah_tenant_location'] = 'Tambah Lokasi Penyewa';
+$lang['ubah_tenant_location']   = 'Ubah Lokasi Penyewa';
+$lang['tenant_location']      = 'Lokasi Penyewa';
+$lang['tenant_see_location']  = 'Lihat Lokasi Penyewa';
+$lang['tenant_location_name']  = 'Nama Lokasi';
+$lang['tenant_location_address']  = 'Alamat Lokasi';
+$lang['tenant_location_latitude']  = 'Latitude';
+$lang['tenant_location_longitude']  = 'Longitude';
+$lang['tenant_location_radius']  = 'Radius Lokasi';
+
+
+// Tenant Setting Modul
+$lang['tenant_setting_modul']      = 'Modul Penyewa';
+$lang['tambah_tenant_setting_modul'] = 'Tambah Modul Penyewa';
+$lang['ubah_tenant_location']   = 'Ubah Lokasi Penyewa';
+$lang['tenant_location']      = 'Lokasi Penyewa';
+$lang['tenant_see_location']  = 'Lihat Lokasi Penyewa';
+$lang['tenant_location_name']  = 'Nama Lokasi';
+$lang['tenant_location_address']  = 'Alamat Lokasi';
+$lang['tenant_location_latitude']  = 'Latitude';
+$lang['tenant_location_longitude']  = 'Longitude';
+$lang['tenant_location_radius']  = 'Radius Lokasi';
+
+
+// Position
+$lang['position']             = 'Jabatan';
+$lang['tambah_position']      = 'Tambah Jabatan';
+$lang['ubah_position']        = 'Ubah Jabatan';
+$lang['position_name']          = 'Nama Jabatan';
+
+
+// Modul
+$lang['modul']             = 'Modul';
+$lang['tambah_modul']      = 'Tambah Modul';
+$lang['ubah_modul']        = 'Ubah Modul';
+$lang['modul_name']          = 'Nama Modul';
+$lang['modul_url']          = 'Modul URL';
+$lang['modul_icon']          = 'Modul Icon';
+
+?>

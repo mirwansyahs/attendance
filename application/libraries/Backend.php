@@ -12,7 +12,11 @@
 				//Menu
 				$data['_menu'] 					= $this->_ci->load->view('_layout/_backend/_menu', $data, TRUE);
 				//TopNav
-				$data['_topnav'] 				= $this->_ci->load->view('_layout/_backend/_topnav', $data, TRUE);
+				if ($this->_ci->uri->segment(1) == "core"){
+					$data['_topnav'] 				= $this->_ci->load->view('_layout/_backend/_topnav_core', $data, TRUE);
+				}else if ($this->_ci->uri->segment(1) == "hc"){
+					$data['_topnav'] 				= $this->_ci->load->view('_layout/_backend/_topnav_human_capital', $data, TRUE);
+				}
 				//Sidebar
 				$data['_sidebar'] 				= $this->_ci->load->view('_layout/_backend/_sidebar', $data, TRUE);
 				// //Content

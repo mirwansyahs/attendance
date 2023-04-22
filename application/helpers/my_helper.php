@@ -1,12 +1,19 @@
 <?php
-	function base_api($string = ''){
-		$base = 'https://sarmila.lanishod.com'.@$string;
+	function core_api($string = ''){
+		$base = 'https://demo.omahawan.com/api/core'.@$string;
+		// $base = 'http://localhost/api/omahawan-core'.@$string;
+
+		return $base;
+	}
+
+	function human_capital_api($string = ''){
+		$base = 'https://demo.omahawan.com/api/human_capital'.@$string;
 
 		return $base;
 	}
 
 	function base_name(){
-		$name = "Nusa Karya Arindo";
+		$name = "Omahawan";
 		return $name;
 	}
 
@@ -61,8 +68,8 @@
 		<div class="position-fixed top-0 end-0 p-3" style="z-index: 1005">
             <div id="liveToast" class="toast text-white bg-'.$bgcolor.'" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-header">
-                    <img src="'.base_url().'assets/images/logo-spt.svg" alt="" class="me-2" height="18">
-                    <strong class="me-auto">Solid Project ID</strong>
+                    <img src="'.base_url().'assets/images/logo-omahawan.png" alt="" class="me-2" height="18">
+                    <strong class="me-auto">Omahawan</strong>
                     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
                 <div class="toast-body">
