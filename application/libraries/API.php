@@ -33,10 +33,10 @@ class API {
             case "PUT":
 
                 if ($data) {
-                    curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
+                    curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
                     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
                     curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-                        'Content-Type: multipart/form-data',
+                        'Content-Type: application/json',
                         'Content-Length: ' . strlen(json_encode($data)),
                         $header
                     ));
@@ -54,8 +54,8 @@ class API {
                     curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
                     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE");
                     curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-                        'Content-Type: multipart/form-data',
-                        'Content-Length: ' . strlen(json_encode($data)),
+                        'Content-Type: application/json',
+                        'Content-Length: ' . strlen(http_build_query($data)),
                         $header
                     ));
                 }

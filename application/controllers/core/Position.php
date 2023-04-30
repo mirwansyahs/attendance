@@ -87,7 +87,7 @@ class Position extends AUTH_Controller {
 		}
 		redirect("core/position");
 	}
-
+	
 	public function delete($id = '')
 	{
 		if ($id == ''){
@@ -96,7 +96,7 @@ class Position extends AUTH_Controller {
 		}else{
 
 			$deleteData = $this->api->CallAPI('DELETE', core_api('/api/v1/Position'), ['PositionID' => $id]);
-			
+
 			$result = json_decode($deleteData);
 			
 			if ($result->status){

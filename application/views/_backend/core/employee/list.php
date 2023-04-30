@@ -46,7 +46,7 @@
                         </td>
                         <td>
                             <span class="badge badge-pill badge-soft-success font-size-11"><?=$key->EmployeePosition?></span><br/>
-                            <?=$key->EmployeePersonalEmail?>
+                            <?=$key->EmployeeCorporateEmail?>
                     
                         </td>
                         <td><?=$key->EmployeePhone?></td>

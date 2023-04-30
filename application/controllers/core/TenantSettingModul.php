@@ -29,7 +29,7 @@ class TenantSettingModul extends AUTH_Controller {
 
 	public function a($id)
 	{
-		$getData = $this->api->CallAPI('GET', core_api('/api/v1/TenantSettingModul'), ['TenantID' => $id]);
+		$getData = $this->api->CallAPI('GET', core_api('/api/v1/TenantSettingModul'), ['Tenant' => base64_decode($id)]);
 			
 		$data['data']		= json_decode($getData)->result;
 		$data['id']			= $id;
@@ -119,7 +119,7 @@ class TenantSettingModul extends AUTH_Controller {
 			}else{
 				$this->session->set_flashdata('msg', toast("danger", $result->message));
 			}
-			// redirect("core/TenantSettingModul/a/".$id);
+			redirect("core/TenantSettingModul/a/".$id);
 		}
 	}
 

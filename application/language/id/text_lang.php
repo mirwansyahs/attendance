@@ -10,6 +10,7 @@ $lang['buka_maps'] = 'Buka Map';
 
 $lang['human_capital']          = 'Sumber Daya Manusia';
 $lang['core_management']        = 'Manajemen Inti';
+$lang['finance']                = 'Keuangan';
 
 // Employee
 $lang['employee']               = 'Karyawan';
@@ -74,18 +75,36 @@ $lang['tenant_location_radius']  = 'Radius Lokasi';
 
 
 // Position
-$lang['position']             = 'Jabatan';
-$lang['tambah_position']      = 'Tambah Jabatan';
-$lang['ubah_position']        = 'Ubah Jabatan';
-$lang['position_name']          = 'Nama Jabatan';
+$lang['position']             = 'Peranan';
+$lang['tambah_position']      = 'Tambah Peranan';
+$lang['ubah_position']        = 'Ubah Peranan';
+$lang['position_name']          = 'Peranan';
 
 
 // Modul
 $lang['modul']             = 'Modul';
 $lang['tambah_modul']      = 'Tambah Modul';
 $lang['ubah_modul']        = 'Ubah Modul';
-$lang['modul_name']          = 'Nama Modul';
+$lang['modul_name']          = 'Modul';
 $lang['modul_url']          = 'Modul URL';
 $lang['modul_icon']          = 'Modul Icon';
+
+
+// TimeProfile
+$lang['time_profile']             = 'Profil Waktu';
+$lang['tambah_time_profile']      = 'Tambah Profil Waktu';
+$lang['ubah_time_profile']        = 'Ubah Profil Waktu';
+$lang['time_profile_name']          = 'Profil Waktu';
+$lang['time_name']              = 'Nama waktu';
+$lang['time_start']             = 'Waktu mulai';
+$lang['time_end']               = 'Waktu selesai';
+$lang['shift']                  = 'Shift';
+$lang['no_profile_shift']       = 'Profile shift tidak ada';
+$lang['see_profile_shift']      = 'Lihat profile shift';
+$lang['time']                   = 'Waktu';
+
+
+
+$lang['attendance']                   = 'Kehadiran';
 
 ?>

@@ -4,7 +4,7 @@
             <div class="card-title">
                 <div class="row">
                     <div class="col-md-6">
-                        <h4><?=lang('tambah_employee')?></h4>
+                        <h4><?=lang('ubah_time_profile')?></h4>
                     </div>
                     <div class="col-md-6">
                         <!-- <a name="" id="" class="btn btn-primary" style="float: right" href="<?=base_url()?>core/Portofolio/add" role="button">
@@ -14,47 +14,42 @@
                     </div>
                 </div>
             </div>
-
             <div class="row card-body">
                 <div class="col-md-6">
-                    <?=form_open_multipart('core/Employee/addProses')?>
-                    <div class="row mb-4">
-                        <div class="col-md-4">
-                            <label class="form-label"><?=lang('employee_first_name')?></label>
-                            <input type="text" class="form-control" id="EmployeeFirstName" name="EmployeeFirstName" value="">
-                        </div>
-                        <div class="col-md-4">
-                            <label class="form-label"><?=lang('employee_middle_name')?></label>
-                            <input type="text" class="form-control" id="EmployeeMiddleName" name="EmployeeMiddleName" value="">
-                        </div>
-                        <div class="col-md-4">
-                            <label class="form-label"><?=lang('employee_last_name')?></label>
-                            <input type="text" class="form-control" id="EmployeeLastName" name="EmployeeLastName" value="">
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label class="form-label"><?=lang('employee_identification_number')?></label>
-                            <input type="text" class="form-control" id="EmployeeIdentificationNumber" name="EmployeeIdentificationNumber" value="">
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label"><?=lang('employee_corporate_email')?></label>
-                            <input type="email" class="form-control" id="EmployeeCorporateEmail" name="EmployeeCorporateEmail" value="">
-                        </div>
+                    <?=form_open_multipart('hc/timeprofile/updateProses/'.$id)?>
+                    <div class="mb-3">
+                        <label class="form-label"><?=lang('time_profile_name')?></label>
+                        <input type="text" class="form-control" id="TimeProfileName" name="TimeProfileName" value="<?=$data->TimeProfileName?>">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label"><?=lang('employee_password')?></label>
-                        <input type="password" class="form-control" id="EmployeePassword" name="EmployeePassword" value="">
+                        <label class="form-label"><?=lang('time_name')?></label>
+                        <input type="text" class="form-control" id="TimeName" name="TimeName" value="<?=$data->TimeName?>">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label"><?=lang('employee_tenant')?></label>
-                        <select class="form-control" id="EmployeeTenant" name="EmployeeTenant" onchange="getModul()">
+                        <label class="form-label"><?=lang('time_start')?></label>
+                        <input type="text" class="form-control" id="TimeStart" name="TimeStart" value="<?=$data->TimeStart?>">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"><?=lang('time_end')?></label>
+                        <input type="text" class="form-control" id="TimeEnd" name="TimeEnd" value="<?=$data->TimeEnd?>">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"><?=lang('tenant_name')?></label>
+                        <select class="form-control" id="TimeProfileTenant" name="TimeProfileTenant" onchange="getModul()">
                             <?php foreach ($tenant as $key) { ?>
-                            <option value="<?=$key->TenantName?>"><?=$key->TenantName?></option>
+                            <option value="<?=$key->TenantName?>" <?=($key->TenantName == $data->TimeProfileTenant)?'selected':''?>><?=$key->TenantName?></option>
                             <?php } ?>
                         </select>
                     </div>
-                    <div id="formCustomRole"></div>
+                    <div class="row mb-3">
+                        <div class="col-md-1">
+                            <label class="form-label"><?=lang('shift')?>?</label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="checkbox" id="shift" name="ProfileShift" switch="none" <?=($data->ProfileShift == 'y')?'checked':''?> />
+                            <label for="shift" data-on-label="On" data-off-label="Off"></label>
+                        </div>
+                    </div>
                     <button class="btn btn-success">
                         <i class="fa fa-save"> <?=lang('simpan')?></i>
                     </button>
@@ -66,6 +61,7 @@
         </div>
     </div>
 </div>
+
 
 <!-- Required datatable js -->
 <script src="<?=base_url()?>assets/backend/libs/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -86,14 +82,5 @@
 <script>
     $(document).ready(function () {
         $('#datatable').DataTable();
-
-        getModul();
     });
-
-    function getModul()
-    {
-        $.post('<?=base_url()?>core/employee/getModulByTenant', 'Tenant='+$('#EmployeeTenant').val(), function(data){
-            $('#formCustomRole').html(data);
-        })
-    }
 </script>

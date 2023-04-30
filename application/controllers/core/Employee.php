@@ -27,6 +27,48 @@ class Employee extends AUTH_Controller {
 		$this->backend->views("_backend/core/employee/list", $data);
 	}
 
+	public function getModulByTenant()
+	{
+		$post = $this->input->post();
+		$getData = $this->api->CallAPI('GET', core_api('/api/v1/TenantSettingModul'), ['Tenant' => $post['Tenant']]);
+			
+		$result	= json_decode($getData);
+
+		$html = '';
+		if ($result->status){
+			foreach ($result->result as $key) {
+				$html .= '<div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">'.lang('modul_name').'</label>
+                            <input type="text" class="form-control" id="ModulName" name="ModulName[]" value="'.$key->ModulName.'" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">'.lang('position_name').'</label>
+                            <select class="form-control" id="PositionName" name="PositionName[]">
+								'.$this->getPositionComponent().'
+							</select>
+                        </div>
+                    </div>';
+			}
+		}
+		echo $html;
+	}
+
+	public function getPositionComponent()
+	{
+
+		$getData = $this->api->CallAPI('GET', core_api('/api/v1/Position'));
+			
+		$result	= json_decode($getData)->result;
+
+		$html = '';
+		foreach ($result as $key) {
+			$html .= '<option value="'.$key->PositionName.'">'.$key->PositionName.'</option>';
+		}
+
+		return $html;
+	}
+
 	public function add()
 	{
 		$getDataPosition = $this->api->CallAPI('GET', core_api('/api/v1/Position'));
@@ -44,9 +86,9 @@ class Employee extends AUTH_Controller {
 	public function addProses()
 	{
 		$data = $this->input->post();
+		$data['addEmployeeRole'] = true;
 		
 		$saveData = $this->api->CallAPI('POST', core_api('/api/v1/Employee'), $data);
-
 		$result = json_decode($saveData);
 		
 		if ($result->status){

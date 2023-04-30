@@ -14,9 +14,6 @@ class Home extends AUTH_Controller {
 
 		parent::__construct();
 
-		$this->load->library('upload');
-
-		$this->load->library('pagination');
 
 	}
 

@@ -7,10 +7,10 @@
             <div class="card-title">
                 <div class="row">
                     <div class="col-md-6">
-                        <h4><?=lang('tenant')?></h4>
+                        <h4><?=lang('time_profile')?></h4>
                     </div>
                     <div class="col-md-6">
-                        <a name="" id="" class="btn btn-primary" style="float: right" href="<?=base_url()?>core/Tenant/add" role="button">
+                        <a name="" id="" class="btn btn-primary" style="float: right" href="<?=base_url()?>hc/timeprofile/add" role="button">
                             <i class="fa fa-plus-square"></i>
                             <?=lang('tambah_data')?>
                         </a>
@@ -21,10 +21,10 @@
             <table id="datatable" class="table table-bordered dt-responsive w-100">
                 <thead>
                     <tr>
-                        <th><?=lang('tenant_name')?></th>
-                        <th width="15%"><?=lang('tenant_modul')?></th>
-                        <th width="15%"><?=lang('tenant_location')?></th>
-                        <th width="25%"><?=lang('aksi')?></th>
+                        <th><?=lang('time_profile_name')?></th>
+                        <th><?=lang('time')?></th>
+                        <th><?=lang('shift')?></th>
+                        <th width="15%"><?=lang('aksi')?></th>
                     </tr>
                 </thead>
 
@@ -35,41 +35,43 @@
                     ?>
                     <tr>
                         <td>
-                            <span class="badge badge-pill badge-soft-info font-size-11"><?=$key->TenantDateCreated?></span>
-                            <?php if ($key->TenantCore == 1){ ?>
-                                <span class="badge badge-pill badge-soft-success font-size-11">
-                                    <i class="fa fa-check-circle"></i>
-                                    <?=strtoupper(lang('core'))?>
-                                </span>
-                            <?php } ?>
+                            <span class="badge badge-pill badge-soft-info font-size-11"><?=$key->TimeProfileDateCreated?></span>
+                            <span class="badge badge-pill badge-soft-success font-size-11">
+                                <i class="bx bx-check"></i> <?=$key->TimeProfileTenant?>
+                            </span>
                             <br/>
-                            <?=$key->TenantName?> 
+                            <?=$key->TimeProfileName?> 
                         </td>
                         <td>
-                            <a href="<?=base_url()?>core/TenantSettingModul/a/<?=$key->TenantName?>" class="btn btn-primary btn-sm">
-                                <i class="bx bx-cog"> <?=lang('tenant_see_modul')?></i>
+                            <?php
+                            $getData = json_decode($this->api->CallAPI('GET', human_capital_api('/api/v1/TimeProfile'), ['TimeProfileTenant' => $key->TimeProfileTenant]))->result;
+                            foreach ($getData as $key) {
+                            ?>
+                                <?=$key->TimeName?> (<?=$key->TimeStart?> - <?=$key->TimeEnd?>)<br/>
+                            <?php
+                            }
+                            ?>
+                        </td>
+                        <td>
+                            <?php if ($key->ProfileShift == 'n'){ ?>
+                            <span class="badge badge-pill badge-soft-danger font-size-11">
+                                <i class="bx bx-check"></i> <?=lang('no_profile_shift')?>
+                            </span>
+                            <?php } else { ?>
+                            <a class="btn btn-primary btn-sm" href="<?=base_url()?>hc/shift/a/<?=$key->TimeProfileID?>">
+                                <i class="bx bx-time"></i> <?=lang('see_profile_shift')?>
                             </a>
+                            <?php } ?>
                         </td>
                         <td>
-                            <a href="<?=base_url()?>core/TenantLocation/a/<?=$key->TenantID?>" class="btn btn-primary btn-sm">
-                                <i class="bx bx-map-alt"> <?=lang('tenant_see_location')?></i>
-                            </a>
-                        </td>
-                        <td>
-                            <a name="" id="" class="btn btn-primary" href="<?=base_url()?>core/Tenant/update/<?=$key->TenantID?>" role="button">
+                            <a name="" id="" class="btn btn-primary" href="<?=base_url()?>hc/timeprofile/update/<?=$key->TimeProfileID?>" role="button">
                                 <i class="fa fa-edit"></i>
                                 <?=lang('ubah')?>
                             </a>
-                            <a name="" id="" class="btn btn-danger" href="<?=base_url()?>core/Tenant/delete/<?=$key->TenantID?>" role="button">
+                            <a name="" id="" class="btn btn-danger" href="<?=base_url()?>hc/timeprofile/delete/<?=$key->TimeProfileID?>" role="button">
                                 <i class="fa fa-trash"></i>
                                 <?=lang('hapus')?>
                             </a>
-                            <?php if ($key->TenantCore == 0){ ?>
-                            <a name="" id="" class="btn btn-success" href="<?=base_url()?>core/Tenant/core/<?=$key->TenantID?>" role="button">
-                                <i class="fa fa-check"></i>
-                                <?=lang('jadikan_core')?>
-                            </a>
-                            <?php } ?>
                         </td>
                     </tr>
                     <?php } ?>
