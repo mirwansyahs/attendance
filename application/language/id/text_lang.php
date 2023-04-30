@@ -121,4 +121,12 @@ $lang['see_profile_shift']       = 'Lihat profile shift';
 
 $lang['attendance']                   = 'Kehadiran';
 $lang['work_day']               = 'Hari kerja';
+$lang['day']    = 'Hari';
+$lang['holiday']    = 'Libur';
+$lang['holiday_name']='Nama Libur';
+$lang['date']   = 'Tanggal';
+$lang['tambah_holiday'] = 'Tambah Libur';
+$lang['number_of_holiday'] = 'Jumlah Libur';
+$lang['day_off']    = 'Hari libur';
+$lang['ubah_holiday']   = 'Ubah Libur';
 ?>

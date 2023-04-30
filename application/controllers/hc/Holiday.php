@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
-class Shift extends AUTH_Controller {
+class Holiday extends AUTH_Controller {
 
 	public function __construct()
 
@@ -15,26 +15,26 @@ class Shift extends AUTH_Controller {
 
 	public function index()
 	{
-		$getData = $this->api->CallAPI('GET', human_capital_api('/api/v1/Shift'), ['group_by' => 'ShiftName', 'ShiftTenant' => $this->userdata->TenantName]);
+		$getData = $this->api->CallAPI('GET', human_capital_api('/api/v1/Holiday'), ['HolidayTenant' => $this->userdata->TenantName]);
 		
 		$data['data']		= json_decode($getData)->result;
 
-		$this->backend->views("_backend/hc/shift/list", $data);
+		$this->backend->views("_backend/hc/holiday/list", $data);
 	}
 
 	public function add()
 	{
-		$this->backend->views("_backend/hc/shift/add");
+		$this->backend->views("_backend/hc/holiday/add");
 	}
 
 	public function addProses()
 	{
 		$data = $this->input->post();
 		$data['addShiftDay']	= true;
-		$data['ShiftTenant']	= $this->userdata->TenantName;
+		$data['HolidayTenant']	= $this->userdata->TenantName;
 		
-		$saveData = $this->api->CallAPI('POST', human_capital_api('/api/v1/Shift'), $data);
-
+		$saveData = $this->api->CallAPI('POST', human_capital_api('/api/v1/Holiday'), $data);
+		
 		$result = json_decode($saveData);
 		
 		if ($result->status){
@@ -42,26 +42,23 @@ class Shift extends AUTH_Controller {
 		}else{
 			$this->session->set_flashdata('msg', toast("danger", $result->message));
 		}
-		redirect("hc/Shift");
+		redirect("hc/holiday");
 	}
 
 	public function update($id = '')
 	{
 		if ($id == ''){
-			redirect('hc/shift');
+			redirect('hc/holiday');
 		}
 
-		$getData = $this->api->CallAPI('GET', human_capital_api('/api/v1/Shift/getRow'), ['ShiftID' => $id]);
-		$getDataShiftDay = $this->api->CallAPI('GET', human_capital_api('/api/v1/ShiftDay'), ['ShiftID' => $id]);
-
+		$getData = $this->api->CallAPI('GET', human_capital_api('/api/v1/Holiday/getRow'), ['HolidayID' => $id]);
+		
 		$data = array(
 			'id'	=> $id,
-			'data'	=> json_decode($getData)->result,
-			'dataShiftDay' => json_decode($getDataShiftDay)->result
+			'data'	=> json_decode($getData)->result
 		);
-
 		
-		$this->backend->views("_backend/hc/shift/update", $data);
+		$this->backend->views("_backend/hc/holiday/update", $data);
 
 	}
 
@@ -69,13 +66,13 @@ class Shift extends AUTH_Controller {
 	{
 		if ($id == ''){
 			$this->session->set_flashdata('msg', toast("danger", "Data gagal diubah."));
-			redirect('hc/shift');
+			redirect('hc/holiday');
 		}
 
 		$data = $this->input->post();
-		$data['ShiftID'] = $id;
+		$data['HolidayID'] = $id;
 
-		$updateData = $this->api->CallAPI('PUT', human_capital_api('/api/v1/Shift'), $data);
+		$updateData = $this->api->CallAPI('PUT', human_capital_api('/api/v1/Holiday'), $data);
 
 		$result = json_decode($updateData);
 		
@@ -84,17 +81,17 @@ class Shift extends AUTH_Controller {
 		}else{
 			$this->session->set_flashdata('msg', toast("danger", $result->message));
 		}
-		redirect("hc/Shift");
+		redirect("hc/holiday");
 	}
 
 	public function delete($id = '')
 	{
 		if ($id == ''){
 			$this->session->set_flashdata('msg', toast("danger", "Data gagal dihapus."));
-			redirect('hc/Shift');
+			redirect('hc/holiday/a/'.$tenant);
 		}else{
 
-			$deleteData = $this->api->CallAPI('DELETE', human_capital_api('/api/v1/Shift'), ['ShiftID' => $id]);
+			$deleteData = $this->api->CallAPI('DELETE', human_capital_api('/api/v1/Holiday'), ['HolidayID' => $id]);
 			
 			$result = json_decode($deleteData);
 			
@@ -103,7 +100,7 @@ class Shift extends AUTH_Controller {
 			}else{
 				$this->session->set_flashdata('msg', toast("danger", $result->message));
 			}
-			redirect("hc/Shift");
+			redirect("hc/holiday");
 		}
 	}
 

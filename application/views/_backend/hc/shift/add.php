@@ -4,7 +4,7 @@
             <div class="card-title">
                 <div class="row">
                     <div class="col-md-6">
-                        <h4><?=lang('tambah_time_profile')?></h4>
+                        <h4><?=lang('tambah_shift')?></h4>
                     </div>
                     <div class="col-md-6">
 
@@ -13,40 +13,39 @@
             </div>
 
             <div class="row card-body">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <?=form_open_multipart('hc/shift/addProses')?>
                     <div class="mb-3">
                         <label class="form-label"><?=lang('shift_name')?></label>
-                        <input type="text" class="form-control" id="TimeProfileName" name="TimeProfileName" value="">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label"><?=lang('time_name')?></label>
-                        <input type="text" class="form-control" id="TimeName" name="TimeName" value="">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label"><?=lang('time_start')?></label>
-                        <input type="text" class="form-control" id="TimeStart" name="TimeStart" value="">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label"><?=lang('time_end')?></label>
-                        <input type="text" class="form-control" id="TimeEnd" name="TimeEnd" value="">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label"><?=lang('tenant_name')?></label>
-                        <select class="form-control" id="TimeProfileTenant" name="TimeProfileTenant" onchange="getModul()">
-                            <?php foreach ($tenant as $key) { ?>
-                            <option value="<?=$key->TenantName?>"><?=$key->TenantName?></option>
-                            <?php } ?>
-                        </select>
+                        <input type="text" class="form-control" id="ShiftName" name="ShiftName" value="">
                     </div>
                     <div class="row mb-3">
-                        <div class="col-md-1">
-                            <label class="form-label"><?=lang('shift')?>?</label>
+                        <div class="col-md-2">
+                            <label class="form-label"><?=lang('day')?></label>
+                            <input type="text" class="form-control" id="Day" name="Day[]" value="1" readonly>
                         </div>
-                        <div class="col-md-3">
-                            <input type="checkbox" id="shift" name="ProfileShift" switch="none" />
-                            <label for="shift" data-on-label="On" data-off-label="Off"></label>
+                        <div class="col-md-10">
+                            <label class="form-label"><?=lang('time_profile_name')?></label>
+                            <select class="form-control" id="TimeProfileID" name="TimeProfileID[]">
+								<?php 
+                                $getData = $this->api->CallAPI('GET', human_capital_api('/api/v1/TimeProfile'), 
+                                [
+                                    'group_by' => 'TimeProfileName', 
+                                    'TimeProfileTenant' => $this->userdata->TenantName
+                                ]);
+
+                                foreach (json_decode($getData)->result as $key) {
+                                ?>
+                                <option value="<?=$key->ID?>"><?=$key->TimeProfileName?></option>
+                                <?php } ?>
+		
+							</select>
                         </div>
+                    </div>
+                    <div id="formAddComponent"></div>
+                    <div class="row mb-3">
+                        <button class="btn btn-block btn-info" type="button" onclick="addComponent()">
+                            <i class="bx bx-plus-circle"></i> <?=lang('tambah_data')?></button>
                     </div>
                     <button class="btn btn-success">
                         <i class="fa fa-save"> <?=lang('simpan')?></i>
@@ -81,4 +80,47 @@
     $(document).ready(function () {
         $('#datatable').DataTable();
     });
+
+    let i = 1;
+    function addComponent()
+    {
+        i++;
+        html = `<div class="row mb-3" id="cmp${i}">
+                        <div class="col-md-2">
+                            <label class="form-label"><?=lang('day')?></label>
+                            <input type="text" class="form-control" id="Day" name="Day[]" value="${i}" readonly>
+                        </div>
+                        <div class="col-md-9">
+                            <label class="form-label"><?=lang('time_profile_name')?></label>
+                            <select class="form-control" id="TimeProfileID" name="TimeProfileID[]">
+								<?php 
+                                $getData = $this->api->CallAPI('GET', human_capital_api('/api/v1/TimeProfile'), 
+                                [
+                                    'group_by' => 'TimeProfileName', 
+                                    'TimeProfileTenant' => $this->userdata->TenantName
+                                ]);
+
+                                foreach (json_decode($getData)->result as $key) {
+                                ?>
+                                <option value="<?=$key->ID?>"><?=$key->TimeProfileName?></option>
+                                <?php } ?>
+		
+							</select>
+                        </div>
+
+                        <div class="col-md-1">
+                            <label class="form-label">&nbsp;</label>
+                            <button class="btn btn-danger" type="button" onclick="deleteComponent('cmp${i}')">
+                                <i class="bx bx-trash"></i>
+                            </button>
+                        </div>
+                    </div>`;
+        $('#formAddComponent').append(html);
+    }
+
+    function deleteComponent(id)
+    {
+        i--;
+        $('#'+id).remove();
+    }
 </script>

@@ -18,6 +18,7 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-attendance">
         
+                                    <a href="<?=base_url()?>hc/holiday" class="dropdown-item" key="t-default"><?=lang('holiday')?></a>
                                     <a href="<?=base_url()?>hc/shift" class="dropdown-item" key="t-default"><?=lang('shift')?></a>
                                     <a href="<?=base_url()?>hc/timeprofile" class="dropdown-item" key="t-default"><?=lang('time_profile')?></a>
                                 </div>
