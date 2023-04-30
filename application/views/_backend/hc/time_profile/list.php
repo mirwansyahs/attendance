@@ -23,7 +23,7 @@
                     <tr>
                         <th><?=lang('time_profile_name')?></th>
                         <th><?=lang('time')?></th>
-                        <th><?=lang('shift')?></th>
+                        <!-- <th><?=lang('shift')?></th> -->
                         <th width="15%"><?=lang('aksi')?></th>
                     </tr>
                 </thead>
@@ -37,7 +37,7 @@
                         <td>
                             <span class="badge badge-pill badge-soft-info font-size-11"><?=$key->TimeProfileDateCreated?></span>
                             <span class="badge badge-pill badge-soft-success font-size-11">
-                                <i class="bx bx-check"></i> <?=$key->TimeProfileTenant?>
+                                <?=$key->TimeProfileTenant?>
                             </span>
                             <br/>
                             <?=$key->TimeProfileName?> 
@@ -52,7 +52,7 @@
                             }
                             ?>
                         </td>
-                        <td>
+                        <!-- <td>
                             <?php if ($key->ProfileShift == 'n'){ ?>
                             <span class="badge badge-pill badge-soft-danger font-size-11">
                                 <i class="bx bx-check"></i> <?=lang('no_profile_shift')?>
@@ -62,7 +62,7 @@
                                 <i class="bx bx-time"></i> <?=lang('see_profile_shift')?>
                             </a>
                             <?php } ?>
-                        </td>
+                        </td> -->
                         <td>
                             <a name="" id="" class="btn btn-primary" href="<?=base_url()?>hc/timeprofile/update/<?=$key->TimeProfileID?>" role="button">
                                 <i class="fa fa-edit"></i>

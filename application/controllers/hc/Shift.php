@@ -24,7 +24,7 @@ class Shift extends AUTH_Controller {
 	public function a($id)
 	{
 		$getData = $this->api->CallAPI('GET', human_capital_api('/api/v1/Shift'), ['TimeProfileID' => $id]);
-		
+		echo $getData;
 		$data['data']		= json_decode($getData)->result;
 		$data['id']			= $id;
 

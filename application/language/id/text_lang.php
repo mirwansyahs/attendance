@@ -104,6 +104,17 @@ $lang['see_profile_shift']      = 'Lihat profile shift';
 $lang['time']                   = 'Waktu';
 
 
+// TimeProfile
+$lang['shift']             = 'Shift';
+$lang['tambah_shift']      = 'Tambah Profil Waktu';
+$lang['ubah_shift']        = 'Ubah Profil Waktu';
+$lang['shift_name']          = 'Profil Waktu';
+$lang['shift_name']              = 'Nama waktu';
+$lang['shift_start']             = 'Waktu mulai';
+$lang['shift_end']               = 'Waktu selesai';
+$lang['shift']                  = 'Shift';
+$lang['no_profile_shift']       = 'Profile shift tidak ada';
+$lang['see_profile_shift']      = 'Lihat profile shift';
 
 $lang['attendance']                   = 'Kehadiran';
 
