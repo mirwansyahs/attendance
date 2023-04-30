@@ -14,7 +14,7 @@
 		return $base;
 	}
 
-	function base_name(){
+	function base_name(){ 
 		$name = "Omahawan";
 		return $name;
 	}
