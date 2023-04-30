@@ -65,6 +65,7 @@ $lang['tenant_location_radius']  = 'Radius Lokasi';
 $lang['tenant_setting_modul']      = 'Modul Penyewa';
 $lang['tambah_tenant_setting_modul'] = 'Tambah Modul Penyewa';
 $lang['ubah_tenant_location']   = 'Ubah Lokasi Penyewa';
+$lang['ubah_tenant_modul']   = 'Ubah Modul Penyewa';
 $lang['tenant_location']      = 'Lokasi Penyewa';
 $lang['tenant_see_location']  = 'Lihat Lokasi Penyewa';
 $lang['tenant_location_name']  = 'Nama Lokasi';

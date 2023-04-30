@@ -51,7 +51,7 @@ class TenantSettingModul extends AUTH_Controller {
 		$data = $this->input->post();
 		
 		$saveData = $this->api->CallAPI('POST', core_api('/api/v1/TenantSettingModul'), $data);
-		echo $saveData;
+
 		$result = json_decode($saveData);
 		
 		if ($result->status){
@@ -62,7 +62,7 @@ class TenantSettingModul extends AUTH_Controller {
 		redirect("core/TenantSettingModul/a/".$id);
 	}
 
-	public function update($id = '')
+	public function update($id = '', $tenant = '')
 	{
 		if ($id == ''){
 			redirect('core/TenantSettingModul');
@@ -80,7 +80,7 @@ class TenantSettingModul extends AUTH_Controller {
 
 	}
 
-	public function updateProses($id = '', $tenant)
+	public function updateProses($id = '', $tenant = '')
 	{
 		if ($id == ''){
 			$this->session->set_flashdata('msg', toast("danger", "Data gagal diubah."));
@@ -103,7 +103,7 @@ class TenantSettingModul extends AUTH_Controller {
 		redirect("core/TenantSettingModul/a/".$tenant);
 	}
 
-	public function delete($id = '')
+	public function delete($id = '', $tenant = '')
 	{
 		if ($id == ''){
 			$this->session->set_flashdata('msg', toast("danger", "Data gagal dihapus."));
@@ -119,7 +119,7 @@ class TenantSettingModul extends AUTH_Controller {
 			}else{
 				$this->session->set_flashdata('msg', toast("danger", $result->message));
 			}
-			redirect("core/TenantSettingModul/a/".$id);
+			redirect("core/TenantSettingModul/a/".$tenant);
 		}
 	}
 

@@ -31,23 +31,6 @@
                         <label class="form-label"><?=lang('time_end')?></label>
                         <input type="text" class="form-control" id="TimeEnd" name="TimeEnd" value="">
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label"><?=lang('tenant_name')?></label>
-                        <select class="form-control" id="TimeProfileTenant" name="TimeProfileTenant" onchange="getModul()">
-                            <?php foreach ($tenant as $key) { ?>
-                            <option value="<?=$key->TenantName?>"><?=$key->TenantName?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-md-1">
-                            <label class="form-label"><?=lang('shift')?>?</label>
-                        </div>
-                        <div class="col-md-3">
-                            <input type="checkbox" id="shift" name="ProfileShift" switch="none" />
-                            <label for="shift" data-on-label="On" data-off-label="Off"></label>
-                        </div>
-                    </div>
                     <button class="btn btn-success">
                         <i class="fa fa-save"> <?=lang('simpan')?></i>
                     </button>

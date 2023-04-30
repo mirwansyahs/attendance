@@ -16,7 +16,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <?=form_open_multipart('core/TenantSettingModul/updateProses/'.$id.'/'.$data->TenantID)?>
+                    <?=form_open_multipart('core/TenantSettingModul/updateProses/'.$id.'/'.base64_encode($data->TenantName))?>
                     <div class="mb-3">
                         <label class="form-label"><?=lang('tenant_name')?></label>
                         <input type="text" class="form-control" id="Tenant" name="Tenant" value="<?=$data->Tenant?>">

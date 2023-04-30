@@ -25,7 +25,7 @@ class TenantLocation extends AUTH_Controller {
 
 	public function a($id)
 	{
-		$getData = $this->api->CallAPI('GET', core_api('/api/v1/TenantLocation'), ['TenantID' => $id]);
+		$getData = $this->api->CallAPI('GET', core_api('/api/v1/TenantLocation'), ['Tenant' => base64_decode($id)]);
 			
 		$data['data']		= json_decode($getData)->result;
 		$data['id']			= $id;
@@ -35,7 +35,7 @@ class TenantLocation extends AUTH_Controller {
 
 	public function add($id)
 	{
-		$data['dataTenant']	= json_decode($this->api->CallAPI('GET', core_api('/api/v1/Tenant/getRow'), ['TenantID' => $id]))->result;
+		$data['dataTenant']	= json_decode($this->api->CallAPI('GET', core_api('/api/v1/Tenant/getRow'), ['TenantName' => base64_decode($id)]))->result;
 		$data['id']	= $id;
 		$this->backend->views("_backend/core/tenant_location/add", $data);
 

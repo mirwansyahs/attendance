@@ -22,7 +22,7 @@
                         <label class="form-label"><?=lang('tenant_name')?></label>
                         <select class="form-control" id="Tenant" name="Tenant">
                         <?php foreach ($dataTenant as $key) { ?>
-                            <option value="<?=$key->TenantName?>"><?=$key->TenantName?></option>
+                            <option value="<?=$key->TenantName?>" <?=($key->TenantName == base64_decode($id))?'selected':''?>><?=$key->TenantName?></option>
                         <?php } ?>
                         </select>
                     </div>

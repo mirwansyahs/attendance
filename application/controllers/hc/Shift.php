@@ -15,7 +15,11 @@ class Shift extends AUTH_Controller {
 
 	public function index()
 	{
-		redirect('core/Tenant');
+		$getData = $this->api->CallAPI('GET', human_capital_api('/api/v1/Shift'), ['group_by' => 'ShiftName']);
+		
+		$data['data']		= json_decode($getData)->result;
+
+		$this->backend->views("_backend/hc/shift/list", $data);
 	}
 
 	public function a($id)

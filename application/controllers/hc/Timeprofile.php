@@ -18,7 +18,11 @@ class Timeprofile extends AUTH_Controller {
 
 	public function index()
 	{
-		$getData = $this->api->CallAPI('GET', human_capital_api('/api/v1/TimeProfile'), ['group_by' => 'TimeProfileName']);
+		$getData = $this->api->CallAPI('GET', human_capital_api('/api/v1/TimeProfile'), 
+		[
+			'group_by' => 'TimeProfileName', 
+			'TimeProfileTenant' => $this->userdata->TenantName
+		]);
 		
 		$data['data']		= json_decode($getData)->result;
 
@@ -46,11 +50,10 @@ class Timeprofile extends AUTH_Controller {
 			$data['ProfileShift'] = 'y';
 
 		}
-		// var_dump($data);
+		$data['TimeProfileTenant']	= $this->userdata->TenantName;
 		
 		$saveData = $this->api->CallAPI('POST', human_capital_api('/api/v1/TimeProfile'), $data);
 
-		// echo $saveData;
 		$result = json_decode($saveData);
 		
 		if ($result->status){
@@ -90,6 +93,7 @@ class Timeprofile extends AUTH_Controller {
 
 		$data = $this->input->post();
 		$data['TimeProfileID'] = $id;
+		$data['TimeProfileTenant']	= $this->userdata->TenantName;
 
 		if (!@$data['ProfileShift']){
 			$data['ProfileShift'] = 'n';

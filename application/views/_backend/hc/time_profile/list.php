@@ -18,13 +18,12 @@
                 </div>
             </div>
 
-            <table id="datatable" class="table table-bordered dt-responsive w-100">
+            <table id="datatable" class="table table-bordered dt-responsive w-100 table-striped">
                 <thead>
                     <tr>
                         <th><?=lang('time_profile_name')?></th>
                         <th><?=lang('time')?></th>
                         <!-- <th><?=lang('shift')?></th> -->
-                        <th width="15%"><?=lang('aksi')?></th>
                     </tr>
                 </thead>
 
@@ -43,35 +42,32 @@
                             <?=$key->TimeProfileName?> 
                         </td>
                         <td>
-                            <?php
-                            $getData = json_decode($this->api->CallAPI('GET', human_capital_api('/api/v1/TimeProfile'), ['TimeProfileName' => $key->TimeProfileName]))->result;
-                            foreach ($getData as $key) {
-                            ?>
-                                <?=$key->TimeName?> (<?=$key->TimeStart?> - <?=$key->TimeEnd?>)<br/>
-                            <?php
-                            }
-                            ?>
-                        </td>
-                        <!-- <td>
-                            <?php if ($key->ProfileShift == 'n'){ ?>
-                            <span class="badge badge-pill badge-soft-danger font-size-11">
-                                <i class="bx bx-check"></i> <?=lang('no_profile_shift')?>
-                            </span>
-                            <?php } else { ?>
-                            <a class="btn btn-primary btn-sm" href="<?=base_url()?>hc/shift/a/<?=$key->TimeProfileID?>">
-                                <i class="bx bx-time"></i> <?=lang('see_profile_shift')?>
-                            </a>
-                            <?php } ?>
-                        </td> -->
-                        <td>
-                            <a name="" id="" class="btn btn-primary" href="<?=base_url()?>hc/timeprofile/update/<?=$key->TimeProfileID?>" role="button">
-                                <i class="fa fa-edit"></i>
-                                <?=lang('ubah')?>
-                            </a>
-                            <a name="" id="" class="btn btn-danger" href="<?=base_url()?>hc/timeprofile/delete/<?=$key->TimeProfileID?>" role="button">
-                                <i class="fa fa-trash"></i>
-                                <?=lang('hapus')?>
-                            </a>
+                            <table class="table" width="100%">
+                                <?php
+                                $getData = json_decode($this->api->CallAPI('GET', human_capital_api('/api/v1/TimeProfile'), 
+                                [
+                                    'TimeProfileName' => $key->TimeProfileName,
+                                    'TimeProfileTenant'=> $this->userdata->TenantName
+                                ]))->result;
+                                foreach ($getData as $value) {
+                                ?>
+                                <tr>
+                                    <td>
+                                        <?=$value->TimeName?> (<?=$value->TimeStart?> - <?=$value->TimeEnd?>)
+                                    </td>
+                                    <td align="right">
+                                        <a name="" id="" class="btn btn-primary" href="<?=base_url()?>hc/timeprofile/update/<?=$value->TimeProfileID?>" role="button">
+                                            <i class="fa fa-edit"></i>
+                                            <?=lang('ubah')?>
+                                        </a>
+                                        <a name="" id="" class="btn btn-danger" href="<?=base_url()?>hc/timeprofile/delete/<?=$value->TimeProfileID?>" role="button">
+                                            <i class="fa fa-trash"></i>
+                                            <?=lang('hapus')?>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <?php } ?>
+                            </table>
                         </td>
                     </tr>
                     <?php } ?>

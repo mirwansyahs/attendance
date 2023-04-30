@@ -51,7 +51,7 @@
                             </a>
                         </td>
                         <td>
-                            <a href="<?=base_url()?>core/TenantLocation/a/<?=$key->TenantID?>" class="btn btn-primary btn-sm">
+                            <a href="<?=base_url()?>core/TenantLocation/a/<?=base64_encode($key->TenantName)?>" class="btn btn-primary btn-sm">
                                 <i class="bx bx-map-alt"> <?=lang('tenant_see_location')?></i>
                             </a>
                         </td>
