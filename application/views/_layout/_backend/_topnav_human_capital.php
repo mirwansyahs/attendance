@@ -10,19 +10,19 @@
                                     <i class="bx bx-home me-2"></i><span key="t-beranda"><?=lang('home')?></span>
                                 </a>
                             </li>
-                        
-                            <li class="nav-item">
-                                <a class="nav-link" href="<?=base_url()?>hc/timeprofile">
-                                    <i class="bx bx-time me-2"></i><span key="t-beranda"><?=lang('time_profile')?></span>
+                            
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-attendance" role="button"
+                                >
+                                    <i class="bx bx-time me-2"></i><span key="t-attendances"><?=lang('attendance')?></span> <div class="arrow-down"></div>
                                 </a>
+                                <div class="dropdown-menu" aria-labelledby="topnav-attendance">
+        
+                                    <a href="<?=base_url()?>hc/shift" class="dropdown-item" key="t-default"><?=lang('shift')?></a>
+                                    <a href="<?=base_url()?>hc/timeprofile" class="dropdown-item" key="t-default"><?=lang('time_profile')?></a>
+                                </div>
                             </li>
-                        
-                            <li class="nav-item">
-                                <a class="nav-link" href="<?=base_url()?>hc/attendance">
-                                    <i class="bx bx-group me-2"></i><span key="t-beranda"><?=lang('attendance')?></span>
-                                </a>
-                            </li>
-                        
+
                         </ul>
                 </div>
             </nav>

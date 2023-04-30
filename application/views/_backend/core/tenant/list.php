@@ -46,7 +46,7 @@
                             <?=$key->TenantName?> 
                         </td>
                         <td>
-                            <a href="<?=base_url()?>core/TenantSettingModul/a/<?=$key->TenantName?>" class="btn btn-primary btn-sm">
+                            <a href="<?=base_url()?>core/TenantSettingModul/a/<?=base64_encode($key->TenantName)?>" class="btn btn-primary btn-sm">
                                 <i class="bx bx-cog"> <?=lang('tenant_see_modul')?></i>
                             </a>
                         </td>
