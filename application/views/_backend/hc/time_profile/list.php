@@ -44,7 +44,7 @@
                         </td>
                         <td>
                             <?php
-                            $getData = json_decode($this->api->CallAPI('GET', human_capital_api('/api/v1/TimeProfile'), ['TimeProfileTenant' => $key->TimeProfileTenant]))->result;
+                            $getData = json_decode($this->api->CallAPI('GET', human_capital_api('/api/v1/TimeProfile'), ['TimeProfileName' => $key->TimeProfileName]))->result;
                             foreach ($getData as $key) {
                             ?>
                                 <?=$key->TimeName?> (<?=$key->TimeStart?> - <?=$key->TimeEnd?>)<br/>

@@ -7,7 +7,7 @@
   <title>Attendance | Log in</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- App favicon -->
-    <link rel="favicon icon" href="<?=base_url()?>assets/images/faviconpng.png">
+    <link rel="favicon icon" href="<?=base_url()?>assets/images/favicon.png">
 
     <!-- owl.carousel css -->
     <link rel="stylesheet" href="<?=base_url()?>assets/backend/libs/owl.carousel/assets/owl.carousel.min.css">
@@ -63,7 +63,7 @@
                             <div class="d-flex flex-column h-50">
                                 <div class="mb-4 mb-md-5 text-center">
                                     <a href="<?=base_url()?>" class="d-block">
-                                        <img src="<?=base_url()?>assets/images/faviconpng.png" alt="" height="150"
+                                        <img src="<?=base_url()?>assets/images/logo-omahawan-nav.png" alt="" width="250"
                                             class="auth-logo-dark">
                                     </a>
                                 </div>
@@ -71,7 +71,7 @@
 
                                     <div>
                                         <h5 class="text-primary">Welcome Back !</h5>
-                                        <p class="text-muted">Sign in to continue to Nusa Karya Arindo.</p>
+                                        <p class="text-muted">Sign in to continue to <?=base_name()?>.</p>
                                     </div>
 
                                     <div class="mt-4">
@@ -105,7 +105,7 @@
 
                                 <div class="mt-4 mt-md-5 text-center">
                                     <p class="mb-0">©
-                                        2020 - <?= date('Y')?> Nusa Karya Arindo.
+                                        2020 - <?= date('Y')?> <?=base_name()?>.
                                     </p>
                                 </div>
                             </div>
