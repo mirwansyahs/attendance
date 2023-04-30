@@ -32,12 +32,9 @@ class Shift extends AUTH_Controller {
 		$this->backend->views("_backend/hc/shift/list", $data);
 	}
 
-	public function add($id)
+	public function add()
 	{
-		$data['dataTenant']	= json_decode($this->api->CallAPI('GET', human_capital_api('/api/v1/Tenant/getRow'), ['ShiftID' => $id]))->result;
-		$data['id']	= $id;
-		$this->backend->views("_backend/hc/shift/add", $data);
-
+		$this->backend->views("_backend/hc/shift/add");
 	}
 
 	public function addProses($id)

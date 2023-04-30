@@ -16,10 +16,22 @@
             </div>
             <div class="row card-body">
                 <div class="col-md-6">
-                    <?=form_open_multipart('hc/timeprofile/updateProses/'.$id)?>
+                    <?=form_open_multipart('hc/timeprofiledetail/updateProses/'.$id)?>
                     <div class="mb-3">
                         <label class="form-label"><?=lang('time_profile_name')?></label>
                         <input type="text" class="form-control" id="TimeProfileName" name="TimeProfileName" value="<?=$data->TimeProfileName?>">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"><?=lang('time_name')?></label>
+                        <input type="text" class="form-control" id="TimeName" name="TimeName" value="<?=$data->TimeName?>">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"><?=lang('time_start')?></label>
+                        <input type="text" class="form-control" id="TimeStart" name="TimeStart" value="<?=$data->TimeStart?>">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"><?=lang('time_end')?></label>
+                        <input type="text" class="form-control" id="TimeEnd" name="TimeEnd" value="<?=$data->TimeEnd?>">
                     </div>
                     <button class="btn btn-success">
                         <i class="fa fa-save"> <?=lang('simpan')?></i>

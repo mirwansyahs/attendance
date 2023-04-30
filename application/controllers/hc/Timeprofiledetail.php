@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
-class Timeprofile extends AUTH_Controller {
+class Timeprofiledetail extends AUTH_Controller {
 
 	public function __construct()
 
@@ -12,21 +12,15 @@ class Timeprofile extends AUTH_Controller {
 
 		parent::__construct();
 
-		$this->load->library('upload');
-
 	}
 
 	public function index()
 	{
-		$getData = $this->api->CallAPI('GET', human_capital_api('/api/v1/TimeProfile'), 
-		[
-			'group_by' => 'TimeProfileName', 
-			'TimeProfileTenant' => $this->userdata->TenantName
-		]);
+		$getData = $this->api->CallAPI('GET', human_capital_api('/api/v1/TimeProfileDetail'));
 		
 		$data['data']		= json_decode($getData)->result;
 
-		$this->backend->views("_backend/hc/time_profile/list", $data);
+		$this->backend->views("_backend/hc/time_profile_detail/list", $data);
 	}
 
 	public function add()
@@ -37,7 +31,7 @@ class Timeprofile extends AUTH_Controller {
 			'tenant'	=> json_decode($getDataTenant)->result
 		);
 
-		$this->backend->views("_backend/hc/time_profile/add", $data);
+		$this->backend->views("_backend/hc/time_profile_detail/add", $data);
 
 	}
 
@@ -53,7 +47,7 @@ class Timeprofile extends AUTH_Controller {
 		$data['TimeProfileTenant']	= $this->userdata->TenantName;
 		$data['addTimeProfileDetail'] = true;
 		
-		$saveData = $this->api->CallAPI('POST', human_capital_api('/api/v1/TimeProfile'), $data);
+		$saveData = $this->api->CallAPI('POST', human_capital_api('/api/v1/TimeProfileDetail'), $data);
 
 		$result = json_decode($saveData);
 		
@@ -62,17 +56,17 @@ class Timeprofile extends AUTH_Controller {
 		}else{
 			$this->session->set_flashdata('msg', toast("danger", $result->message));
 		}
-		redirect("hc/timeprofile");
+		redirect("hc/TimeProfileDetail");
 	}
 
 	public function update($id = '')
 	{
 		if ($id == ''){
-			redirect('hc/timeprofile');
+			redirect('hc/TimeProfileDetail');
 		}
 
-		$getData = $this->api->CallAPI('GET', human_capital_api('/api/v1/TimeProfile/getRow'), ['ID' => $id]);
-
+		$getData = $this->api->CallAPI('GET', human_capital_api('/api/v1/TimeProfile/getRow'), ['TimeProfileDetailID' => $id, 'addTimeProfileDetail' => true]);
+		
 		$getDataTenant = $this->api->CallAPI('GET', core_api('/api/v1/Tenant'));
 
 		$data = array(
@@ -81,7 +75,7 @@ class Timeprofile extends AUTH_Controller {
 			'tenant'	=> json_decode($getDataTenant)->result
 		);
 		
-		$this->backend->views("_backend/hc/time_profile/update", $data);
+		$this->backend->views("_backend/hc/time_profile_detail/update", $data);
 
 	}
 
@@ -89,21 +83,13 @@ class Timeprofile extends AUTH_Controller {
 	{
 		if ($id == ''){
 			$this->session->set_flashdata('msg', toast("danger", "Data gagal diubah."));
-			redirect('hc/timeprofile');
+			redirect('hc/TimeProfileDetail');
 		}
 
 		$data = $this->input->post();
-		$data['ID'] = $id;
-		$data['TimeProfileTenant']	= $this->userdata->TenantName;
+		$data['TimeProfileDetailID'] = $id;
 
-		if (!@$data['ProfileShift']){
-			$data['ProfileShift'] = 'n';
-		}else{
-			$data['ProfileShift'] = 'y';
-
-		}
-
-		$updateData = $this->api->CallAPI('PUT', human_capital_api('/api/v1/TimeProfile'), $data);
+		$updateData = $this->api->CallAPI('PUT', human_capital_api('/api/v1/TimeProfileDetail'), $data);
 
 		$result = json_decode($updateData);
 		
@@ -112,17 +98,17 @@ class Timeprofile extends AUTH_Controller {
 		}else{
 			$this->session->set_flashdata('msg', toast("danger", $result->message));
 		}
-		redirect("hc/timeprofile");
+		redirect("hc/TimeProfile");
 	}
 
 	public function delete($id = '')
 	{
 		if ($id == ''){
 			$this->session->set_flashdata('msg', toast("danger", "Data gagal dihapus."));
-			redirect('hc/timeprofile');
+			redirect('hc/TimeProfile');
 		}else{
 
-			$deleteData = $this->api->CallAPI('DELETE', human_capital_api('/api/v1/TimeProfile'), ['ID' => $id]);
+			$deleteData = $this->api->CallAPI('DELETE', human_capital_api('/api/v1/TimeProfileDetail'), ['TimeProfileDetailID' => $id]);
 			
 			$result = json_decode($deleteData);
 			
@@ -131,7 +117,7 @@ class Timeprofile extends AUTH_Controller {
 			}else{
 				$this->session->set_flashdata('msg', toast("danger", $result->message));
 			}
-			redirect("hc/timeprofile");
+			redirect("hc/TimeProfile");
 		}
 	}
 

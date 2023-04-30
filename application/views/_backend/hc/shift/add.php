@@ -14,9 +14,9 @@
 
             <div class="row card-body">
                 <div class="col-md-12">
-                    <?=form_open_multipart('hc/timeprofile/addProses')?>
+                    <?=form_open_multipart('hc/shift/addProses')?>
                     <div class="mb-3">
-                        <label class="form-label"><?=lang('time_profile_name')?></label>
+                        <label class="form-label"><?=lang('shift_name')?></label>
                         <input type="text" class="form-control" id="TimeProfileName" name="TimeProfileName" value="">
                     </div>
                     <div class="mb-3">

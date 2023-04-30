@@ -44,28 +44,43 @@
                         <td>
                             <table class="table" width="100%">
                                 <?php
-                                $getData = json_decode($this->api->CallAPI('GET', human_capital_api('/api/v1/TimeProfile'), 
+                                $getData = json_decode($this->api->CallAPI('GET', human_capital_api('/api/v1/TimeProfileDetail'), 
                                 [
-                                    'TimeProfileName' => $key->TimeProfileName,
-                                    'TimeProfileTenant'=> $this->userdata->TenantName
+                                    'TimeProfileID' => $key->ID,
                                 ]))->result;
-                                foreach ($getData as $value) {
+                                if (count($getData) > 0){
+                                    foreach ($getData as $value) {
                                 ?>
-                                <tr>
-                                    <td>
-                                        <?=$value->TimeName?> (<?=$value->TimeStart?> - <?=$value->TimeEnd?>)
-                                    </td>
-                                    <td align="right">
-                                        <a name="" id="" class="btn btn-primary" href="<?=base_url()?>hc/timeprofile/update/<?=$value->TimeProfileID?>" role="button">
-                                            <i class="fa fa-edit"></i>
-                                            <?=lang('ubah')?>
-                                        </a>
-                                        <a name="" id="" class="btn btn-danger" href="<?=base_url()?>hc/timeprofile/delete/<?=$value->TimeProfileID?>" role="button">
-                                            <i class="fa fa-trash"></i>
-                                            <?=lang('hapus')?>
-                                        </a>
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td>
+                                            <?=$value->TimeName?> (<?=$value->TimeStart?> - <?=$value->TimeEnd?>)
+                                        </td>
+                                        <td align="right">
+                                            <a name="" id="" class="btn btn-primary" href="<?=base_url()?>hc/timeprofiledetail/update/<?=$value->TimeProfileDetailID?>" role="button">
+                                                <i class="fa fa-edit"></i>
+                                                <?=lang('ubah')?>
+                                            </a>
+                                            <a name="" id="" class="btn btn-danger" href="<?=base_url()?>hc/timeprofiledetail/delete/<?=$value->TimeProfileDetailID?>" role="button">
+                                                <i class="fa fa-trash"></i>
+                                                <?=lang('hapus')?>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php } 
+                                }else{?>
+                                    <tr>
+                                        <td></td>
+                                        <td align="right">
+                                            <a name="" id="" class="btn btn-primary" href="<?=base_url()?>hc/timeprofile/update/<?=$key->ID?>" role="button">
+                                                <i class="fa fa-edit"></i>
+                                                <?=lang('ubah')?>
+                                            </a>
+                                            <a name="" id="" class="btn btn-danger" href="<?=base_url()?>hc/timeprofile/delete/<?=$key->ID?>" role="button">
+                                                <i class="fa fa-trash"></i>
+                                                <?=lang('hapus')?>
+                                            </a>
+                                        </td>
+                                    </tr>
                                 <?php } ?>
                             </table>
                         </td>

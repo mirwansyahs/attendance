@@ -10,7 +10,7 @@
                         <h4><?=lang('shift')?></h4>
                     </div>
                     <div class="col-md-6">
-                        <a name="" id="" class="btn btn-primary" style="float: right" href="<?=base_url()?>hc/timeprofile/add" role="button">
+                        <a name="" id="" class="btn btn-primary" style="float: right" href="<?=base_url()?>hc/shift/add" role="button">
                             <i class="fa fa-plus-square"></i>
                             <?=lang('tambah_data')?>
                         </a>
@@ -22,8 +22,7 @@
                 <thead>
                     <tr>
                         <th><?=lang('shift_name')?></th>
-                        <th><?=lang('time')?></th>
-                        <th><?=lang('shift')?></th>
+                        <th><?=lang('work_day')?></th>
                         <th width="15%"><?=lang('aksi')?></th>
                     </tr>
                 </thead>
@@ -32,6 +31,7 @@
                 <tbody>
                     <?php
                     foreach ($data as $key) {
+                        $getData = json_decode($this->api->CallAPI('GET', human_capital_api('/api/v1/Shiftday'), ['ShiftID' => $key->ShiftID]))->result;
                     ?>
                     <tr>
                         <td>
@@ -40,35 +40,19 @@
                                 <i class="bx bx-check"></i> <?=$key->ShiftTenant?>
                             </span>
                             <br/>
-                            <?=$key->ShiftName?> 
+                            <?=$key->ShiftName?>
                         </td>
                         <td>
-                            <?php
-                            $getData = json_decode($this->api->CallAPI('GET', human_capital_api('/api/v1/Shift'), ['ShiftTenant' => $key->ShiftTenant]))->result;
-                            foreach ($getData as $key) {
-                            ?>
-                                <?=$key->TimeName?> (<?=$key->TimeStart?> - <?=$key->TimeEnd?>)<br/>
-                            <?php
-                            }
-                            ?>
-                        </td>
-                        <td>
-                            <?php if ($key->ProfileShift == 'n'){ ?>
-                            <span class="badge badge-pill badge-soft-danger font-size-11">
-                                <i class="bx bx-check"></i> <?=lang('no_profile_shift')?>
+                            <span class="badge badge-pill badge-soft-primary font-size-11">
+                                <i class="bx bx-time"></i> <?=count($getData)?> <?=lang('work_day')?>
                             </span>
-                            <?php } else { ?>
-                            <a class="btn btn-primary btn-sm" href="<?=base_url()?>hc/shift/a/<?=$key->TimeProfileID?>">
-                                <i class="bx bx-time"></i> <?=lang('see_profile_shift')?>
-                            </a>
-                            <?php } ?>
                         </td>
                         <td>
-                            <a name="" id="" class="btn btn-primary" href="<?=base_url()?>hc/timeprofile/update/<?=$key->TimeProfileID?>" role="button">
+                            <a name="" id="" class="btn btn-primary" href="<?=base_url()?>hc/shift/update/<?=$key->ShiftID?>" role="button">
                                 <i class="fa fa-edit"></i>
                                 <?=lang('ubah')?>
                             </a>
-                            <a name="" id="" class="btn btn-danger" href="<?=base_url()?>hc/timeprofile/delete/<?=$key->TimeProfileID?>" role="button">
+                            <a name="" id="" class="btn btn-danger" href="<?=base_url()?>hc/shift/delete/<?=$key->ShiftID?>" role="button">
                                 <i class="fa fa-trash"></i>
                                 <?=lang('hapus')?>
                             </a>

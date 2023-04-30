@@ -1,15 +1,15 @@
 <?php
 	function core_api($string = ''){
-		$base = 'https://demo.omahawan.com/api/core'.@$string;
-		// $base = 'http://localhost/api/omahawan-core'.@$string;
+		// $base = 'https://demo.omahawan.com/api/core'.@$string;
+		$base = 'http://localhost/api/omahawan-core'.@$string;
 		
 
 		return $base;
 	}
 
 	function human_capital_api($string = ''){
-		$base = 'https://demo.omahawan.com/api/human_capital'.@$string;
-		// $base = 'http://localhost/api/human-capital'.@$string;
+		// $base = 'https://demo.omahawan.com/api/human_capital'.@$string;
+		$base = 'http://localhost/api/human-capital'.@$string;
 
 		return $base;
 	}

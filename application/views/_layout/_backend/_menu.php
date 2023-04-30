@@ -34,7 +34,7 @@
       <div class="dropdown d-inline-block">
         <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false">
-          <img id="header-lang-img" src="<?=base_url()?>assets/images/flags/<?=(@$this->userdata->EmployeeLang == "us")?"us.jpg":"indonesia.png"?>" alt="Header Language" height="16">
+          <img id="header-lang-img" src="<?=base_url()?>assets/images/flags/<?=(@$this->userdata->EmployeeLang == "en")?"us.jpg":"indonesia.png"?>" alt="Header Language" height="16">
         </button>
         <div class="dropdown-menu dropdown-menu-end">
 
