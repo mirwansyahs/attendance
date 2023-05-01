@@ -14,4 +14,4 @@ jobs:
         server: demo.omahawan.com
         username: omahcom
         password: R@sunagarden
-        server-dir: /demo.omahawan.com/attendance/
+        server-dir: /demo.omahawan.com/done/
