@@ -119,4 +119,5 @@ $lang['see_profile_shift']      = 'Lihat profile shift';
 
 $lang['attendance']                   = 'Kehadiran';
 
+$lang['hse']    = "HSE";
 ?>
