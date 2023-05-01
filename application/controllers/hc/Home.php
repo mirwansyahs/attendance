@@ -26,7 +26,7 @@ class Home extends AUTH_Controller {
 		$data['subjudul']	= "Dashboard";
 		$data['judul']		= "Dashboard";
 
-		$this->backend->views("_backend/home", $data);
+		$this->backend->views("_backend/core/home", $data);
 
 	}
 
