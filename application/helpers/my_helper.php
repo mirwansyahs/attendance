@@ -2,7 +2,6 @@
 	function core_api($string = ''){
 		$base = 'https://demo.omahawan.com/api/core'.@$string;
 		// $base = 'http://localhost/api/omahawan-core'.@$string;
-		
 
 		return $base;
 	}

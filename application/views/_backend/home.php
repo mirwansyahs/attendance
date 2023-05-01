@@ -90,7 +90,9 @@
 foreach ($this->modul as $key) { 
     $cekRole = $this->api->CallAPI('GET', core_api('/api/v1/EmployeeRole/getRow'), ['EmployeeID' => $this->userdata->EmployeeID, 'ModulName' => $key->ModulName]);
     if (json_decode($cekRole)->result->PositionName == "Admin"){ 
-        $this->load->view('_backend/home/home_'.$key->ModulName, array('key' => $key));
+        if (file_exists('_backend/home/home_'.$key->ModulName.'.php')){
+          $this->load->view('_backend/home/home_'.$key->ModulName, array('key' => $key));
+        }
     } 
 }?>
 
