@@ -76,7 +76,7 @@
 
         <?php foreach ($this->modul as $key) { 
             $cekRole = $this->api->CallAPI('GET', core_api('/api/v1/EmployeeRole/getRow'), ['EmployeeID' => $this->userdata->EmployeeID, 'ModulName' => $key->ModulName]);
-            echo $cekRole;
+            
             if (json_decode($cekRole)->result->PositionName == "Admin"){ 
         ?>
         <li class="<?=($this->uri->segment(1) == explode("/", $key->ModulUrl)[0])?'mm-active':''?>">
