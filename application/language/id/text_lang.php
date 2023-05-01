@@ -113,12 +113,22 @@ $lang['shift_name']          = 'Profil Waktu';
 $lang['shift_name']              = 'Nama waktu';
 $lang['shift_start']             = 'Waktu mulai';
 $lang['shift_end']               = 'Waktu selesai';
-$lang['shift']                  = 'Shift';
-$lang['no_profile_shift']       = 'Profile shift tidak ada';
-$lang['see_profile_shift']      = 'Lihat profile shift';
+$lang['shift']                   = 'Shift';
+$lang['no_profile_shift']        = 'Profile shift tidak ada';
+$lang['see_profile_shift']       = 'Lihat profile shift';
 
-$lang['attendance']                   = 'Kehadiran';
+$lang['attendance']              = 'Kehadiran';
 
-$lang['hse']    = "HSE";
-$lang['site_management']    = "Site";
+$lang['hse']                     = "HSE";
+$lang['site_management']         = "Site";
+$lang['sc_management']           = "SC Management";
+$lang['finance']                 = "keuangan";
+$lang['mining_operation']        = "Mining Operation";
+$lang['assets_management']       = "Asset Management";
+$lang['correspondency']          = "Correspondency";
+$lang['purchasing_management']   = "Purchasing Management";
+$lang['hr_management']           = "HR Management";
+$lang['cr_management']           = "CR Management";
+$lang['warehouse_management']    = "Warehouse Management";
+
 ?>
