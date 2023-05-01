@@ -11,6 +11,17 @@ $lang['buka_maps'] = 'Buka Map';
 $lang['human_capital']          = 'Sumber Daya Manusia';
 $lang['core_management']        = 'Manajemen Inti';
 $lang['finance']                = 'Keuangan';
+$lang['hse']                     = "HSE";
+$lang['site_management']         = "Site Management";
+$lang['sc_management']           = "SC Management";
+$lang['finance']                 = "keuangan";
+$lang['mining_operation']        = "Mining Operation";
+$lang['assets_management']       = "Asset Management";
+$lang['correspondency']          = "Correspondency";
+$lang['purchasing_management']   = "Purchasing Management";
+$lang['hr_management']           = "HR Management";
+$lang['cr_management']           = "CR Management";
+$lang['warehouse_management']    = "Warehouse Management";
 
 // Employee
 $lang['employee']               = 'Karyawan';
@@ -52,8 +63,6 @@ $lang['tenant_see_modul']       = 'Lihat Modul Penyewa';
 $lang['tenant_location']      = 'Lokasi Penyewa';
 $lang['tambah_tenant_location'] = 'Tambah Lokasi Penyewa';
 $lang['ubah_tenant_location']   = 'Ubah Lokasi Penyewa';
-$lang['tenant_location']      = 'Lokasi Penyewa';
-$lang['tenant_see_location']  = 'Lihat Lokasi Penyewa';
 $lang['tenant_location_name']  = 'Nama Lokasi';
 $lang['tenant_location_address']  = 'Alamat Lokasi';
 $lang['tenant_location_latitude']  = 'Latitude';
@@ -65,14 +74,6 @@ $lang['tenant_location_radius']  = 'Radius Lokasi';
 $lang['tenant_setting_modul']      = 'Modul Penyewa';
 $lang['tambah_tenant_setting_modul'] = 'Tambah Modul Penyewa';
 $lang['ubah_tenant_location']   = 'Ubah Lokasi Penyewa';
-$lang['ubah_tenant_modul']   = 'Ubah Modul Penyewa';
-$lang['tenant_location']      = 'Lokasi Penyewa';
-$lang['tenant_see_location']  = 'Lihat Lokasi Penyewa';
-$lang['tenant_location_name']  = 'Nama Lokasi';
-$lang['tenant_location_address']  = 'Alamat Lokasi';
-$lang['tenant_location_latitude']  = 'Latitude';
-$lang['tenant_location_longitude']  = 'Longitude';
-$lang['tenant_location_radius']  = 'Radius Lokasi';
 
 
 // Position
@@ -119,16 +120,6 @@ $lang['see_profile_shift']       = 'Lihat profile shift';
 
 $lang['attendance']              = 'Kehadiran';
 
-$lang['hse']                     = "HSE";
-$lang['site_management']         = "Site";
-$lang['sc_management']           = "SC Management";
-$lang['finance']                 = "keuangan";
-$lang['mining_operation']        = "Mining Operation";
-$lang['assets_management']       = "Asset Management";
-$lang['correspondency']          = "Correspondency";
-$lang['purchasing_management']   = "Purchasing Management";
-$lang['hr_management']           = "HR Management";
-$lang['cr_management']           = "CR Management";
-$lang['warehouse_management']    = "Warehouse Management";
+
 
 ?>
