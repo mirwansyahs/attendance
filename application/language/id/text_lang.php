@@ -14,7 +14,6 @@ $lang['finance']                = 'Keuangan';
 $lang['hse']                     = "HSE";
 $lang['site_management']         = "Site Management";
 $lang['sc_management']           = "SC Management";
-$lang['finance']                 = "keuangan";
 $lang['mining_operation']        = "Mining Operation";
 $lang['assets_management']       = "Asset Management";
 $lang['correspondency']          = "Correspondency";
@@ -129,4 +128,7 @@ $lang['tambah_holiday'] = 'Tambah Libur';
 $lang['number_of_holiday'] = 'Jumlah Libur';
 $lang['day_off']    = 'Hari libur';
 $lang['ubah_holiday']   = 'Ubah Libur';
+$lang['you_are_currently_at'] = 'Anda berada di';
+$lang['daily_information_board']    = 'Informasi harian';
+$lang['employee_present']   = 'Kehadiran karyawan';
 ?>
