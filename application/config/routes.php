@@ -53,6 +53,13 @@ $route['default_controller'] = 'Login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['hc/employee'] = 'core/Employee';
+$route['hc/employee/add'] = 'core/Employee/add';
+$route['hc/employee/update/(:num)'] = 'core/Employee/update/$1';
+$route['hc/employee/delete/(:num)'] = 'core/Employee/delete/$1';
+$route['hc/employee/getModulByTenant'] = 'core/employee/getModulByTenant';
+$route['hc/employee/addProses'] =   'core/Employee/addProses';
+$route['hc/employee/updateProses/(:num)'] = 'core/Employee/updateProses/$1';
 
 $route['Signin'] = 'Login/sign';
 $route['Logout'] = 'Login/out';

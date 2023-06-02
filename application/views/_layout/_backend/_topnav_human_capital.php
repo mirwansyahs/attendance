@@ -24,6 +24,11 @@
                                 </div>
                             </li>
 
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?=base_url()?>hc/employee">
+                                    <i class="bx bx-group me-2"></i><span key="t-employee"><?=lang('employee')?></span>
+                                </a>
+                            </li>
                         </ul>
                 </div>
             </nav>

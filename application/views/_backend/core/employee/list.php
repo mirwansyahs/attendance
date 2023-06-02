@@ -10,7 +10,7 @@
                         <h4><?=lang('employee')?></h4>
                     </div>
                     <div class="col-md-6">
-                        <a name="" id="" class="btn btn-primary" style="float: right" href="<?=base_url()?>core/Employee/add" role="button">
+                        <a name="" id="" class="btn btn-primary" style="float: right" href="<?=base_url()?><?=$this->uri->segment(1)?>/employee/add" role="button">
                             <i class="fa fa-plus-square"></i>
                             <?=lang('tambah_data')?>
                         </a>
@@ -45,17 +45,17 @@
                             
                         </td>
                         <td>
-                            <span class="badge badge-pill badge-soft-success font-size-11"><?=$key->EmployeePosition?></span><br/>
+                            <span class="badge badge-pill badge-soft-success font-size-11"><?=$key->EmployeeRole?></span><br/>
                             <?=$key->EmployeeCorporateEmail?>
                     
                         </td>
                         <td><?=$key->EmployeePhone?></td>
                         <td>
-                            <a name="" id="" class="btn btn-primary" href="<?=base_url()?>core/Employee/update/<?=$key->EmployeeID?>" role="button">
+                            <a name="" id="" class="btn btn-primary" href="<?=base_url()?><?=$this->uri->segment(1)?>/employee/update/<?=$key->EmployeeID?>" role="button">
                                 <i class="fa fa-edit"></i>
                                 <?=lang('ubah')?>
                             </a>
-                            <a name="" id="" class="btn btn-danger" href="<?=base_url()?>core/Employee/delete/<?=$key->EmployeeID?>" role="button">
+                            <a name="" id="" class="btn btn-danger" href="<?=base_url()?><?=$this->uri->segment(1)?>/employee/delete/<?=$key->EmployeeID?>" role="button">
                                 <i class="fa fa-trash"></i>
                                 <?=lang('hapus')?>
                             </a>

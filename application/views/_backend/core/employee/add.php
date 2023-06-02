@@ -7,7 +7,7 @@
                         <h4><?=lang('tambah_employee')?></h4>
                     </div>
                     <div class="col-md-6">
-                        <!-- <a name="" id="" class="btn btn-primary" style="float: right" href="<?=base_url()?>core/Portofolio/add" role="button">
+                        <!-- <a name="" id="" class="btn btn-primary" style="float: right" href="<?=base_url()?><?=$this->uri->segment(1)?>/Portofolio/add" role="button">
                             <i class="fa fa-plus-square"></i>
                             Tambah data
                         </a> -->
@@ -17,7 +17,7 @@
 
             <div class="row card-body">
                 <div class="col-md-6">
-                    <?=form_open_multipart('core/Employee/addProses')?>
+                    <?=form_open_multipart($this->uri->segment(1).'/employee/addProses')?>
                     <div class="row mb-4">
                         <div class="col-md-4">
                             <label class="form-label"><?=lang('employee_first_name')?></label>
@@ -92,7 +92,7 @@
 
     function getModul()
     {
-        $.post('<?=base_url()?>core/employee/getModulByTenant', 'Tenant='+$('#EmployeeTenant').val(), function(data){
+        $.post('<?=base_url()?><?=$this->uri->segment(1)?>/employee/getModulByTenant', 'Tenant='+$('#EmployeeTenant').val(), function(data){
             $('#formCustomRole').html(data);
         })
     }

@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
-class Position extends AUTH_Controller {
+class Role extends AUTH_Controller {
 
 	public function __construct()
 
@@ -20,16 +20,16 @@ class Position extends AUTH_Controller {
 
 	public function index()
 	{
-		$getData = $this->api->CallAPI('GET', core_api('/api/v1/Position'));
+		$getData = $this->api->CallAPI('GET', core_api('/api/v1/Role'));
 			
 		$data['data']		= json_decode($getData)->result;
 
-		$this->backend->views("_backend/core/position/list", $data);
+		$this->backend->views("_backend/core/role/list", $data);
 	}
 
 	public function add()
 	{
-		$this->backend->views("_backend/core/position/add");
+		$this->backend->views("_backend/core/role/add");
 
 	}
 
@@ -37,7 +37,7 @@ class Position extends AUTH_Controller {
 	{
 		$data = $this->input->post();
 		
-		$saveData = $this->api->CallAPI('POST', core_api('/api/v1/Position'), $data);
+		$saveData = $this->api->CallAPI('POST', core_api('/api/v1/Role'), $data);
 
 		$result = json_decode($saveData);
 		
@@ -46,23 +46,23 @@ class Position extends AUTH_Controller {
 		}else{
 			$this->session->set_flashdata('msg', toast("danger", $result->message));
 		}
-		redirect("core/position");
+		redirect("core/role");
 	}
 
 	public function update($id = '')
 	{
 		if ($id == ''){
-			redirect('core/position');
+			redirect('core/role');
 		}
 
-		$getData = $this->api->CallAPI('GET', core_api('/api/v1/Position/getRow'), ['PositionID' => $id]);
+		$getData = $this->api->CallAPI('GET', core_api('/api/v1/Role/getRow'), ['RoleID' => $id]);
 		
 		$data = array(
 			'id'	=> $id,
 			'data'	=> json_decode($getData)->result
 		);
 		
-		$this->backend->views("_backend/core/position/update", $data);
+		$this->backend->views("_backend/core/role/update", $data);
 
 	}
 
@@ -70,13 +70,13 @@ class Position extends AUTH_Controller {
 	{
 		if ($id == ''){
 			$this->session->set_flashdata('msg', toast("danger", "Data gagal diubah."));
-			redirect('core/position');
+			redirect('core/role');
 		}
 
 		$data = $this->input->post();
-		$data['PositionID'] = $id;
+		$data['RoleID'] = $id;
 
-		$updateData = $this->api->CallAPI('PUT', core_api('/api/v1/Position'), $data);
+		$updateData = $this->api->CallAPI('PUT', core_api('/api/v1/Role'), $data);
 
 		$result = json_decode($updateData);
 		
@@ -85,17 +85,17 @@ class Position extends AUTH_Controller {
 		}else{
 			$this->session->set_flashdata('msg', toast("danger", $result->message));
 		}
-		redirect("core/position");
+		redirect("core/role");
 	}
 	
 	public function delete($id = '')
 	{
 		if ($id == ''){
 			$this->session->set_flashdata('msg', toast("danger", "Data gagal dihapus."));
-			redirect('core/position');
+			redirect('core/role');
 		}else{
 
-			$deleteData = $this->api->CallAPI('DELETE', core_api('/api/v1/Position'), ['PositionID' => $id]);
+			$deleteData = $this->api->CallAPI('DELETE', core_api('/api/v1/Role'), ['RoleID' => $id]);
 
 			$result = json_decode($deleteData);
 			
@@ -104,7 +104,7 @@ class Position extends AUTH_Controller {
 			}else{
 				$this->session->set_flashdata('msg', toast("danger", $result->message));
 			}
-			redirect("core/position");
+			redirect("core/role");
 		}
 	}
 

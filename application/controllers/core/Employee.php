@@ -16,11 +16,13 @@ class Employee extends AUTH_Controller {
 
 	}
 
-
-
 	public function index()
 	{
-		$getData = $this->api->CallAPI('GET', core_api('/api/v1/Employee'), ['EmployeeTenant' => $this->userdata->EmployeeTenant]);
+		if ($this->uri->segment(1) == "core"){
+			$getData = $this->api->CallAPI('GET', core_api('/api/v1/Employee'));
+		}else{
+			$getData = $this->api->CallAPI('GET', core_api('/api/v1/Employee'), ['EmployeeTenant' => $this->userdata->EmployeeTenant]);
+		}
 			
 		$data['data']		= json_decode($getData)->result;
 
@@ -43,9 +45,9 @@ class Employee extends AUTH_Controller {
                             <input type="text" class="form-control" id="ModulName" name="ModulName[]" value="'.$key->ModulName.'" readonly>
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label">'.lang('position_name').'</label>
-                            <select class="form-control" id="PositionName" name="PositionName[]">
-								'.$this->getPositionComponent().'
+                            <label class="form-label">'.lang('role_name').'</label>
+                            <select class="form-control" id="RoleName" name="RoleName[]">
+								'.$this->getRoleComponent().'
 							</select>
                         </div>
                     </div>';
@@ -54,16 +56,16 @@ class Employee extends AUTH_Controller {
 		echo $html;
 	}
 
-	public function getPositionComponent()
+	public function getRoleComponent()
 	{
 
-		$getData = $this->api->CallAPI('GET', core_api('/api/v1/Position'));
+		$getData = $this->api->CallAPI('GET', core_api('/api/v1/Role'));
 			
 		$result	= json_decode($getData)->result;
 
 		$html = '';
 		foreach ($result as $key) {
-			$html .= '<option value="'.$key->PositionName.'">'.$key->PositionName.'</option>';
+			$html .= '<option value="'.$key->RoleName.'">'.$key->RoleName.'</option>';
 		}
 
 		return $html;
@@ -71,11 +73,14 @@ class Employee extends AUTH_Controller {
 
 	public function add()
 	{
-		$getDataPosition = $this->api->CallAPI('GET', core_api('/api/v1/Position'));
-		$getDataTenant = $this->api->CallAPI('GET', core_api('/api/v1/Tenant'));
+
+		if ($this->uri->segment(1) == "core"){
+			$getDataTenant = $this->api->CallAPI('GET', core_api('/api/v1/Tenant'));
+		}else{
+			$getDataTenant = $this->api->CallAPI('GET', core_api('/api/v1/Tenant'), ['TenantName' => $this->userdata->EmployeeTenant]);
+		}
 
 		$data = array(
-			'position'	=> json_decode($getDataPosition)->result,
 			'tenant'	=> json_decode($getDataTenant)->result
 		);
 
@@ -96,24 +101,29 @@ class Employee extends AUTH_Controller {
 		}else{
 			$this->session->set_flashdata('msg', toast("danger", $result->message));
 		}
-		redirect("core/employee");
+		redirect($this->uri->segment(1)."/employee");
 	}
 
 	public function update($id = '')
 	{
 		if ($id == ''){
-			redirect('core/employee');
+			redirect($this->uri->segment(1).'/employee');
 		}
 
 		$getData = $this->api->CallAPI('GET', core_api('/api/v1/Employee/getRow'), ['EmployeeID' => $id]);
 		
-		$getDataPosition = $this->api->CallAPI('GET', core_api('/api/v1/Position'));
-		$getDataTenant = $this->api->CallAPI('GET', core_api('/api/v1/Tenant'));
+		$getDataRole = $this->api->CallAPI('GET', core_api('/api/v1/Role'));
+
+		if ($this->uri->segment(1) == "core"){
+			$getDataTenant = $this->api->CallAPI('GET', core_api('/api/v1/Tenant'));
+		}else{
+			$getDataTenant = $this->api->CallAPI('GET', core_api('/api/v1/Tenant'), ['TenantName' => $this->userdata->EmployeeTenant]);
+		}
 
 		$data = array(
 			'id'	=> $id,
 			'data'	=> json_decode($getData)->result,
-			'position'=> json_decode($getDataPosition)->result,
+			'role'=> json_decode($getDataRole)->result,
 			'tenant'	=> json_decode($getDataTenant)->result
 		);
 		
@@ -125,7 +135,7 @@ class Employee extends AUTH_Controller {
 	{
 		if ($id == ''){
 			$this->session->set_flashdata('msg', toast("danger", "Data gagal diubah."));
-			redirect('core/employee');
+			redirect($this->uri->segment(1).'/employee');
 		}
 
 		$data = $this->input->post();
@@ -145,14 +155,14 @@ class Employee extends AUTH_Controller {
 		}else{
 			$this->session->set_flashdata('msg', toast("danger", $result->message));
 		}
-		redirect("core/employee");
+		redirect($this->uri->segment(1)."/employee");
 	}
 
 	public function delete($id = '')
 	{
 		if ($id == ''){
 			$this->session->set_flashdata('msg', toast("danger", "Data gagal dihapus."));
-			redirect('core/employee');
+			redirect($this->uri->segment(1).'/employee');
 		}else{
 
 			$deleteData = $this->api->CallAPI('DELETE', core_api('/api/v1/Employee'), ['EmployeeID' => $id]);
@@ -164,7 +174,7 @@ class Employee extends AUTH_Controller {
 			}else{
 				$this->session->set_flashdata('msg', toast("danger", $result->message));
 			}
-			redirect("core/employee");
+			redirect($this->uri->segment(1)."/employee");
 		}
 	}
 

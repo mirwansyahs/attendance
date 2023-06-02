@@ -66,7 +66,7 @@
         </li>
 
         <?php if ($this->userdata->TenantCore == 1){ ?>
-        <li class="">
+        <li class="<?=($this->uri->segment(1) == "core")?'mm-active':''?>">
           <a href="<?=base_url()?>core/home" class="waves-effect">
             <i class="bx bx-shield"></i>
             <span key="t-chat"><?=lang('core_management')?></span>

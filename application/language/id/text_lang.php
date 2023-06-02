@@ -34,7 +34,7 @@ $lang['employee_middle_name']   = 'Nama Tengah';
 $lang['employee_last_name']     = 'Nama Akhir';
 $lang['employee_identification_number']         = 'NIK';
 $lang['employee_family_identification_number']  = 'No. KK';
-$lang['employee_position']          = 'Posisi Karyawan';
+$lang['employee_role']          = 'Posisi Karyawan';
 $lang['employee_personal_email']    = 'Email Pribadi';
 $lang['employee_corporate_email']   = 'Email Kantor';
 $lang['employee_password']          = 'Password Karyawan';
@@ -75,11 +75,11 @@ $lang['tambah_tenant_setting_modul'] = 'Tambah Modul Penyewa';
 $lang['ubah_tenant_location']   = 'Ubah Lokasi Penyewa';
 
 
-// Position
-$lang['position']             = 'Peranan';
-$lang['tambah_position']      = 'Tambah Peranan';
-$lang['ubah_position']        = 'Ubah Peranan';
-$lang['position_name']          = 'Peranan';
+// role
+$lang['role']             = 'Peranan';
+$lang['tambah_role']      = 'Tambah Peranan';
+$lang['ubah_role']        = 'Ubah Peranan';
+$lang['role_name']          = 'Peranan';
 
 
 // Modul

@@ -6,31 +6,31 @@
                         <ul class="navbar-nav">
 
                             <li class="nav-item">
-                                <a class="nav-link" href="<?=base_url()?>core/Home">
+                                <a class="nav-link" href="<?=base_url()?>core/home">
                                     <i class="bx bx-home me-2"></i><span key="t-beranda"><?=lang('home')?></span>
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="<?=base_url()?>core/Tenant">
+                                <a class="nav-link" href="<?=base_url()?>core/tenant">
                                     <i class="bx bx-buildings me-2"></i><span key="t-tenant"><?=lang('tenant')?></span>
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="<?=base_url()?>core/Employee">
+                                <a class="nav-link" href="<?=base_url()?>core/employee">
                                     <i class="bx bx-group me-2"></i><span key="t-employee"><?=lang('employee')?></span>
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="<?=base_url()?>core/Position">
-                                    <i class="bx bx-group me-2"></i><span key="t-position"><?=lang('position')?></span>
+                                <a class="nav-link" href="<?=base_url()?>core/role">
+                                    <i class="bx bx-group me-2"></i><span key="t-role"><?=lang('role')?></span>
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="<?=base_url()?>core/Modul">
+                                <a class="nav-link" href="<?=base_url()?>core/modul">
                                     <i class="bx bx-group me-2"></i><span key="t-modul"><?=lang('modul')?></span>
                                 </a>
                             </li>

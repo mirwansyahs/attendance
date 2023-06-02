@@ -1,59 +1,39 @@
 <div class="col-md-12">
     <div class="card">
         <div class="card-body">
-
-            <?=$this->session->flashdata('msg')?>
-
             <div class="card-title">
                 <div class="row">
                     <div class="col-md-6">
-                        <h4><?=lang('position')?></h4>
+                        <h4><?=lang('tambah_role')?></h4>
                     </div>
                     <div class="col-md-6">
-                        <a name="" id="" class="btn btn-primary" style="float: right" href="<?=base_url()?>core/Position/add" role="button">
+                        <!-- <a name="" id="" class="btn btn-primary" style="float: right" href="<?=base_url()?>core/Portofolio/add" role="button">
                             <i class="fa fa-plus-square"></i>
-                            <?=lang('tambah_data')?>
-                        </a>
+                            Tambah data
+                        </a> -->
                     </div>
                 </div>
             </div>
 
-            <table id="datatable" class="table table-bordered dt-responsive w-100">
-                <thead>
-                    <tr>
-                        <th><?=lang('position_name')?></th>
-                        <th width="15%"><?=lang('aksi')?></th>
-                    </tr>
-                </thead>
+            <div class="row card-body">
+                <div class="col-md-12">
+                    <?=form_open_multipart('core/Role/addProses')?>
+                    <div class="mb-3">
+                        <label class="form-label"><?=lang('role_name')?></label>
+                        <input type="text" class="form-control" id="RoleName" name="RoleName" value="">
+                    </div>
+                    <button class="btn btn-success">
+                        <i class="fa fa-save"> <?=lang('simpan')?></i>
+                    </button>
+                    <?=form_close()?>
+                </div>
+            </div>
 
-
-                <tbody>
-                    <?php
-                    foreach ($data as $key) {
-                    ?>
-                    <tr>
-                        <td>
-                            <span class="badge badge-pill badge-soft-info font-size-11"><?=$key->PositionDateCreated?></span><br/>
-                            <?=$key->PositionName?> 
-                        </td>
-                        <td>
-                            <a name="" id="" class="btn btn-primary" href="<?=base_url()?>core/position/update/<?=$key->PositionID?>" role="button">
-                                <i class="fa fa-edit"></i>
-                                <?=lang('ubah')?>
-                            </a>
-                            <a name="" id="" class="btn btn-danger" href="<?=base_url()?>core/position/delete/<?=$key->PositionID?>" role="button">
-                                <i class="fa fa-trash"></i>
-                                <?=lang('hapus')?>
-                            </a>
-                        </td>
-                    </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
 
         </div>
     </div>
 </div>
+
 
 <!-- Required datatable js -->
 <script src="<?=base_url()?>assets/backend/libs/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -72,7 +52,7 @@
 <script src="<?=base_url()?>assets/backend/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
 <script src="<?=base_url()?>assets/backend/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#datatable').DataTable();
     });
 </script>
