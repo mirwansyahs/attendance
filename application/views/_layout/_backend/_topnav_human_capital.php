@@ -29,6 +29,19 @@
                                     <i class="bx bx-group me-2"></i><span key="t-employee"><?=lang('employee')?></span>
                                 </a>
                             </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-request" role="button"
+                                >
+                                    <i class="bx bx-time me-2"></i><span key="t-requests"><?=lang('request')?></span> <div class="arrow-down"></div>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="topnav-request">
+        
+                                    <a href="<?=base_url()?>hc/leave" class="dropdown-item" key="t-default"><?=lang('leave_request')?></a>
+                                    <!-- <a href="<?=base_url()?>hc/shift" class="dropdown-item" key="t-default"><?=lang('claim')?></a> -->
+                                    <!-- <a href="<?=base_url()?>hc/timeprofile" class="dropdown-item" key="t-default"><?=lang('time_profile')?></a> -->
+                                </div>
+                            </li>
                         </ul>
                 </div>
             </nav>

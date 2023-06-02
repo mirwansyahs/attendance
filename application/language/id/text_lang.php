@@ -117,6 +117,13 @@ $lang['shift']                   = 'Shift';
 $lang['no_profile_shift']        = 'Profile shift tidak ada';
 $lang['see_profile_shift']       = 'Lihat profile shift';
 
+// Request
+$lang['request']             = 'Permintaan';
+$lang['my_request']             = 'Permintaan Saya';
+$lang['leave_request']             = 'Permintaan Cuti';
+$lang['leave']             = 'Cuti';
+$lang['leave_type']             = 'Tipe Cuti';
+
 
 $lang['attendance']                   = 'Kehadiran';
 $lang['work_day']               = 'Hari kerja';
