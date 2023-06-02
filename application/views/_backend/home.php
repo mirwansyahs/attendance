@@ -22,7 +22,7 @@
               <img src="<?=base_url()?>assets/images/users/avatar-1.jpg" alt="" class="img-thumbnail rounded-circle">
             </div>
             <h5 class="font-size-15 text-truncate"><?=$this->userdata->EmployeeFirstName?></h5>
-            <p class="text-muted mb-0 text-truncate"><?=@$this->userdata->EmployeePosition?></p>
+            <p class="text-muted mb-0 text-truncate"><?=@$this->userdata->EmployeeRole?></p>
           </div>
 
           <div class="col-sm-8">
@@ -89,7 +89,7 @@
 <?php 
 foreach ($this->modul as $key) { 
     $cekRole = $this->api->CallAPI('GET', core_api('/api/v1/EmployeeRole/getRow'), ['EmployeeID' => $this->userdata->EmployeeID, 'ModulName' => $key->ModulName]);
-    if (json_decode($cekRole)->result->PositionName == "Admin"){ 
+    if (json_decode($cekRole)->result->RoleName == "Admin"){ 
 
         if (file_exists(__DIR__.'/home/home_'.$key->ModulName.'.php')){
           $this->load->view('_backend/home/home_'.$key->ModulName, array('key' => $key));
