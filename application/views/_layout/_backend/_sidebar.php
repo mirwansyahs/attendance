@@ -77,7 +77,7 @@
         <?php foreach ($this->modul as $key) { 
             $cekRole = $this->api->CallAPI('GET', core_api('/api/v1/EmployeeRole/getRow'), ['EmployeeID' => $this->userdata->EmployeeID, 'ModulName' => $key->ModulName]);
             
-            if (json_decode($cekRole)->result->PositionName == "Admin"){ 
+            if (json_decode($cekRole)->result->RoleName == "Admin"){ 
         ?>
         <li class="<?=($this->uri->segment(1) == explode("/", $key->ModulUrl)[0])?'mm-active':''?>">
           <a href="<?=base_url()?><?=$key->ModulUrl?>" class="waves-effect">
