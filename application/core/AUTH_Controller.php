@@ -11,7 +11,11 @@ class AUTH_Controller extends CI_Controller {
 		if ($this->session->userdata('status') == '') {
 			redirect('Login');
 		}else{
-			$data = $this->api->CallAPI('POST', core_api('/api/v1/Authentication/after_auth') , ['EmployeePersonalEmail' => (@$this->session->userdata('userdata')->result->EmployeePersonalEmail)]);
+			if (@$this->session->userdata('userdata') == "Admin"){
+				$data = $this->api->CallAPI('POST', core_api('/api/v1/Authentication/after_auth') , ['EmployeePersonalEmail' => (@$this->session->userdata('userdata')->result->EmployeePersonalEmail)]);
+			}else{
+				$data = $this->api->CallAPI('POST', core_api('/api/v1/Authentication/after_auth') , ['EmployeeCorporateEmail' => (@$this->session->userdata('userdata')->result->EmployeeCorporateEmail)]);
+			}
 
 			$data = json_decode($data);
 			if ($data->status == true){
