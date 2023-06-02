@@ -1,13 +1,13 @@
 <?php
 	function core_api($string = ''){
-		$base = 'https://demo.omahawan.com/api/core'.@$string;
+		$base = 'https://api.solidproject.id/core'.@$string;
 		// $base = 'http://localhost/api/omahawan-core'.@$string;
 
 		return $base;
 	}
 
 	function human_capital_api($string = ''){
-		$base = 'https://demo.omahawan.com/api/human-resources'.@$string;
+		$base = 'https://api.solidproject.id/human-resources'.@$string;
 		// $base = 'http://localhost/api/human-capital'.@$string;
 
 		return $base;
