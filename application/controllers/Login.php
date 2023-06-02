@@ -26,7 +26,7 @@ class Login extends CI_Controller{
 			$password = trim($data['password']);
 
 			$data = $this->api->CallAPI('POST', core_api('/api/v1/Authentication'), ['EmployeePersonalEmail' => $username, 'EmployeePassword' => $password]);
-			
+			// var_dump($data);
 			$data = json_decode($data);
 			if ($data->status == false) {			
 				$arr = array(
@@ -39,7 +39,6 @@ class Login extends CI_Controller{
 					'userdata' => $data,
 					'status' => "Loged in"
 				];
-				
 				
 
 				$this->session->set_userdata('file_manager',true);

@@ -3,7 +3,7 @@
     <div class="d-flex">
       <!-- LOGO -->
       <div class="navbar-brand-box">
-        <a href="<?=base_url()?>Home" class="logo logo-dark">
+        <a href="<?=base_url()?>admin/home" class="logo logo-dark">
           <span class="logo-sm">
             <img src="<?=base_url()?>assets/images/logo-omahawan.png" alt="" height="22">
           </span>
@@ -12,7 +12,7 @@
           </span>
         </a>
 
-        <a href="<?=base_url()?>Home" class="logo logo-light">
+        <a href="<?=base_url()?>admin/home" class="logo logo-light">
           <span class="logo-sm">
             <img src="<?=base_url()?>assets/images/logo-omahawan.png" alt="" height="30">
           </span>
@@ -25,6 +25,12 @@
       <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
         <i class="fa fa-fw fa-bars"></i>
       </button>
+
+      <?php if ($this->uri->segment('1') != "admin"){ ?>
+      <button type="button" class="btn btn-sm px-3 font-size-16 d-lg-none header-item waves-effect waves-light" data-bs-toggle="collapse" data-bs-target="#topnav-menu-content">
+        <i class="fa fa-fw fa-bars"></i>
+      </button>
+      <?php } ?>
 
     </div>
 
