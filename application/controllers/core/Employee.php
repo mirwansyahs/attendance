@@ -60,7 +60,6 @@ class Employee extends AUTH_Controller {
 	{
 
 		$getData = $this->api->CallAPI('GET', core_api('/api/v1/Role'));
-			
 		$result	= json_decode($getData)->result;
 
 		$html = '';
