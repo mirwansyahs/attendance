@@ -119,15 +119,28 @@ $lang['see_profile_shift']       = 'Lihat profile shift';
 
 // Request
 $lang['request']             = 'Permintaan';
+$lang['new_request']             = 'Permintaan Baru';
 $lang['my_request']             = 'Permintaan Saya';
+$lang['request_type']             = 'Tipe Permintaan';
 $lang['leave_request']             = 'Permintaan Cuti';
 $lang['leave']             = 'Cuti';
 $lang['leave_type']             = 'Tipe Cuti';
+$lang['start_date']             = 'Tanggal Awal';
+$lang['end_date']             = 'Tanggal Akhir';
+$lang['cause']             = 'Alasan';
+$lang['ubah_request']             = 'Ubah Permintaan';
+$lang['request_status']     = 'Keterangan Permintaan';
 
+// Approval
+$lang['approval']   = 'Persetujuan';
+$lang['approval_type']   = 'Tipe Persetujuan';
+$lang['approve']   = 'Setujui';
+$lang['reject']   = 'Tolak';
 
 $lang['attendance']                   = 'Kehadiran';
 $lang['work_day']               = 'Hari kerja';
 $lang['day']    = 'Hari';
+$lang['file']    = 'Berkas';
 $lang['holiday']    = 'Libur';
 $lang['holiday_name']='Nama Libur';
 $lang['date']   = 'Tanggal';

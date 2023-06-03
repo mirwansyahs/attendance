@@ -1,20 +1,3 @@
-<?php
-if ($dataApproval->total > 0){
-?>
-<div class="col-md-12">
-    <a href="<?=base_url()?>hc/approval">
-        <div class="alert alert-info">
-            <span style="">
-            <b><?=$dataApproval->total?></b> Menunggu Persetujuan Anda
-            </span>
-            <span style="float: right">
-                <i class="bx bx-right-arrow-circle"></i>
-            </span>
-        </div>
-    </a>
-</div>
-<?php } ?>
-
 <div class="col-md-12">
     <div class="card">
         <div class="card-body">
@@ -24,13 +7,13 @@ if ($dataApproval->total > 0){
             <div class="card-title">
                 <div class="row">
                     <div class="col-md-6">
-                        <h4><?=lang('leave')?></h4>
+                        <h4><?=lang('approval')?></h4>
                     </div>
                     <div class="col-md-6">
-                        <a name="" id="" class="btn btn-primary" style="float: right" href="<?=base_url()?>hc/leave/add" role="button">
+                        <!-- <a name="" id="" class="btn btn-primary" style="float: right" href="<?=base_url()?>hc/approval/add" role="button">
                             <i class="fa fa-plus-square"></i>
                             <?=lang('tambah_data')?>
-                        </a>
+                        </a> -->
                     </div>
                 </div>
             </div>
@@ -38,10 +21,9 @@ if ($dataApproval->total > 0){
             <table id="datatable" class="table table-bordered dt-responsive w-100">
                 <thead>
                     <tr>
-                        <th width="25%"><?=lang('leave_type')?></th>
+                        <th width="25%"><?=lang('approval_type')?></th>
                         <th><?=lang('cause')?></th>
                         <th width="15%"><?=lang('date')?></th>
-                        <th width="15%"><?=lang('request_status')?></th>
                         <th width="15%"><?=lang('aksi')?></th>
                     </tr>
                 </thead>
@@ -50,29 +32,15 @@ if ($dataApproval->total > 0){
                 <tbody>
                     <?php
                     foreach ($data as $key) {
-                        $color = "info";
-                        if ($key->RequestStatus == "SSSUBM"){
-                            $color = "primary";
-                        }else if($key->RequestStatus == "SSREJC"){
-                            $color = "danger";
-                        }else if($key->RequestStatus == "SSAPPR"){
-                            $color = "success";
-                        }else if($key->RequestStatus == "APWAIT"){
-                            $color = "";
-                        }
                         $dateStart = new DateTime(date_format(date_create($key->StartDate), "d M Y"));
                         $dateEnd = new DateTime(date_format(date_create($key->EndDate), "d M Y"));
                         $interval = $dateStart->diff($dateEnd);
-                        // $getData = @json_decode($this->api->CallAPI('GET', human_capital_api('/api/v1/Leave'), ['ID' => $key->ID]))->result;
                     ?>
                     <tr>
                         <td>
                             <span class="badge badge-pill badge-soft-info font-size-11"><?=$key->DateCreated?></span>
                             <span class="badge badge-pill badge-soft-success font-size-11">
                                 <i class="bx bx-check"></i> <?=$key->RequestType?>
-                            </span>
-                            <span class="badge badge-pill badge-soft-<?=@$color?> font-size-11">
-                                <i class="bx bx-time"></i> <?=$key->RequestStatus?>
                             </span>
                             <br/>
                             <?=$key->LeaveTypeName?>
@@ -89,16 +57,13 @@ if ($dataApproval->total > 0){
                             </span>
                         </td>
                         <td>
-                            <?=$key->RequestDescription?>
-                        </td>
-                        <td>
-                            <a name="" id="" class="btn btn-primary" href="<?=base_url()?>hc/leave/update/<?=$key->ID?>" role="button">
-                                <i class="fa fa-edit"></i>
-                                <?=lang('ubah')?>
+                            <a name="" id="" class="btn btn-success" href="<?=base_url()?>hc/approval/approve/<?=$key->ID?>" role="button">
+                                <i class="fa fa-check"></i>
+                                <?=lang('approve')?>
                             </a>
-                            <a name="" id="" class="btn btn-danger" href="<?=base_url()?>hc/leave/delete/<?=$key->ID?>" role="button">
-                                <i class="fa fa-trash"></i>
-                                <?=lang('hapus')?>
+                            <a name="" id="" class="btn btn-danger" href="<?=base_url()?>hc/approval/reject/<?=$key->ID?>" role="button">
+                                <i class="fa fa-times"></i>
+                                <?=lang('reject')?>
                             </a>
                         </td>
                     </tr>

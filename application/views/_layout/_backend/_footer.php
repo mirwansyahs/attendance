@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-6">
-        2020 - <?=date('Y')?> © Omahawan.
+        <?=date('Y')?> © Omahawan.
       </div>
     </div>
   </div>
