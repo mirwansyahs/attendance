@@ -16,6 +16,8 @@
 					$data['_topnav'] 				= $this->_ci->load->view('_layout/_backend/_topnav_core', $data, TRUE);
 				}else if ($this->_ci->uri->segment(1) == "hc"){
 					$data['_topnav'] 				= $this->_ci->load->view('_layout/_backend/_topnav_human_capital', $data, TRUE);
+				}else if ($this->_ci->uri->segment(1) == "cp"){
+					$data['_topnav'] 				= $this->_ci->load->view('_layout/_backend/_topnav_correspondency', $data, TRUE);
 				}
 				//Sidebar
 				$data['_sidebar'] 				= $this->_ci->load->view('_layout/_backend/_sidebar', $data, TRUE);

@@ -137,6 +137,34 @@ $lang['approval_type']   = 'Tipe Persetujuan';
 $lang['approve']   = 'Setujui';
 $lang['reject']   = 'Tolak';
 
+// Letter
+$lang['letter'] = 'Surat';
+$lang['letter_in'] = 'Surat Masuk';
+$lang['letter_out'] = 'Surat Keluar';
+$lang['letter_disposisi'] = 'Surat Disposisi';
+$lang['letter_name'] = 'Nama Surat';
+$lang['letter_number'] = 'Nomor Surat';
+$lang['tambah_letter_in'] = 'Tambah Surat Masuk';
+$lang['tambah_letter_out'] = 'Tambah Surat Keluar';
+$lang['tambah_letter_disposisi'] = 'Tambah Surat Disposisi';
+$lang['letter_no'] = 'Nomor Surat';
+$lang['document_number'] = 'Nomor Dokumen';
+$lang['letter_secrecy'] = 'Kerahasiaan Surat';
+$lang['letter_date'] = 'Tanggal Surat';
+$lang['hapus_disposisi'] = 'Hapus Disposisi';
+$lang['ubah_letter_in'] = 'Ubah Surat Masuk';
+$lang['ubah_letter_out'] = 'Ubah Surat Keluar';
+$lang['ubah_letter_disposisi'] = 'Ubah Surat Disposisi';
+$lang['letter_jenis']       = 'Jenis Surat';
+
+$lang['disposisi']                   = 'Disposisi';
+$lang['letter_attachment']                   = 'Lampiran';
+$lang['letter_subject']                   = 'Perihal';
+$lang['letter_pic']                   = 'PIC';
+$lang['letter_signature']                   = 'Penandatangan';
+$lang['letter_signature_position']                   = 'Jabatan Penandatangan';
+$lang['number_letter_attachment']                   = 'Jumlah Lampiran';
+$lang['see_disposisi']                   = 'Lihat Disposisi';
 $lang['attendance']                   = 'Kehadiran';
 $lang['work_day']               = 'Hari kerja';
 $lang['day']    = 'Hari';

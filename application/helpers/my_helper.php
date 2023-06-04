@@ -13,6 +13,20 @@
 		return $base;
 	}
 
+	function document_management_api($string = ''){
+		$base = 'https://api.solidproject.id/document-management'.@$string;
+		// $base = 'http://localhost/api/document-management'.@$string;
+
+		return $base;
+	}
+
+	function correspondency_api($string = ''){
+		$base = 'https://api.solidproject.id/correspondency'.@$string;
+		// $base = 'http://localhost/api/correspondency'.@$string;
+
+		return $base;
+	}
+
 	function base_name(){ 
 		$name = "Omahawan";
 		return $name;

@@ -38,10 +38,9 @@
                                 <div class="dropdown-menu" aria-labelledby="topnav-request">
         
                                     <a href="<?=base_url()?>hc/leave" class="dropdown-item" key="t-default"><?=lang('leave_request')?></a>
-                                    <!-- <a href="<?=base_url()?>hc/shift" class="dropdown-item" key="t-default"><?=lang('claim')?></a> -->
-                                    <!-- <a href="<?=base_url()?>hc/timeprofile" class="dropdown-item" key="t-default"><?=lang('time_profile')?></a> -->
                                 </div>
                             </li>
+
                         </ul>
                 </div>
             </nav>
