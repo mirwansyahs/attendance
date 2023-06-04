@@ -23,10 +23,10 @@
 
 
 	<!-- JAVASCRIPT -->
-    <script src="<?=base_url()?>assets/backend/libs/metismenu/metisMenu.min.js"></script>
-    <script src="<?=base_url()?>assets/backend/libs/simplebar/simplebar.min.js"></script>
-    <script src="<?=base_url()?>assets/backend/libs/node-waves/waves.min.js"></script>
 
+    <script src="<?=base_url()?>assets/backend/libs/metismenu/metisMenu.min.js"></script>
+    <script src="<?=base_url()?>assets/backend/libs/node-waves/waves.min.js"></script>
+    <script src="<?=base_url()?>assets/backend/libs/simplebar/simplebar.min.js"></script>
 	<script src="<?=base_url()?>assets/backend/js/app.js"></script>
 </body>
 </html>

@@ -1,28 +1,28 @@
 <?php
 	function core_api($string = ''){
-		$base = 'https://api.solidproject.id/core'.@$string;
-		// $base = 'http://localhost/api/omahawan-core'.@$string;
+		// $base = 'https://api.solidproject.id/core'.@$string;
+		$base = 'http://localhost/api/omahawan-core'.@$string;
 
 		return $base;
 	}
 
 	function human_capital_api($string = ''){
-		$base = 'https://api.solidproject.id/human-resources'.@$string;
-		// $base = 'http://localhost/api/human-capital'.@$string;
+		// $base = 'https://api.solidproject.id/human-resources'.@$string;
+		$base = 'http://localhost/api/human-capital'.@$string;
 
 		return $base;
 	}
 
 	function document_management_api($string = ''){
-		$base = 'https://api.solidproject.id/document-management'.@$string;
-		// $base = 'http://localhost/api/document-management'.@$string;
+		// $base = 'https://api.solidproject.id/document-management'.@$string;
+		$base = 'http://localhost/api/document-management'.@$string;
 
 		return $base;
 	}
 
 	function correspondency_api($string = ''){
-		$base = 'https://api.solidproject.id/correspondency'.@$string;
-		// $base = 'http://localhost/api/correspondency'.@$string;
+		// $base = 'https://api.solidproject.id/correspondency'.@$string;
+		$base = 'http://localhost/api/correspondency'.@$string;
 
 		return $base;
 	}
