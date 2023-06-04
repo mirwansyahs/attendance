@@ -18,6 +18,7 @@ class Leave extends AUTH_Controller {
 		$getData = $this->api->CallAPI('GET', human_capital_api('/api/v1/Leave'), ['RequestTenant' => $this->userdata->TenantName, 'EmployeeID' => $this->userdata->EmployeeID]);
 		$getDataApproval = $this->api->CallAPI('GET', human_capital_api('/api/v1/Leave/getApproval'), ['PositionName' => $this->userdata->EmployeePositionName, 'OrganizationName' => $this->userdata->EmployeeOrganization, 'RequestStatus' => ["SSSUBM", 'APWAIT']]);
 		// var_dump($getDataApproval);
+		
 		$data['data']		= @json_decode($getData)->result;
 		$data['dataApproval'] = @json_decode($getDataApproval);
 
