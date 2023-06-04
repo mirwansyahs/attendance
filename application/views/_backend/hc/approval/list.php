@@ -21,6 +21,7 @@
             <table id="datatable" class="table table-bordered dt-responsive w-100">
                 <thead>
                     <tr>
+                        <th width="20%"><?=lang('employee_name')?></th>
                         <th width="25%"><?=lang('approval_type')?></th>
                         <th><?=lang('cause')?></th>
                         <th width="15%"><?=lang('date')?></th>
@@ -32,11 +33,15 @@
                 <tbody>
                     <?php
                     foreach ($data as $key) {
+                        $getData = json_decode($this->api->CallAPI('GET', core_api('/api/v1/Employee/getRow'), ['EmployeeTenant' => $this->userdata->EmployeeTenant, 'EmployeeID' => $key->EmployeeID]))->result;
                         $dateStart = new DateTime(date_format(date_create($key->StartDate), "d M Y"));
                         $dateEnd = new DateTime(date_format(date_create($key->EndDate), "d M Y"));
                         $interval = $dateStart->diff($dateEnd);
                     ?>
                     <tr>
+                        <td>
+                            <?=@$getData->EmployeeFirstName?> <?=@$getData->EmployeeMiddleName?> <?=@$getData->EmployeeLastName?> 
+                        </td>
                         <td>
                             <span class="badge badge-pill badge-soft-info font-size-11"><?=$key->DateCreated?></span>
                             <span class="badge badge-pill badge-soft-success font-size-11">
